@@ -13,6 +13,7 @@
 		0A76E3FE26404BC8000F58B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FD26404BC8000F58B2 /* Preview Assets.xcassets */; };
 		0A76E40126404BC8000F58B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FF26404BC8000F58B2 /* LaunchScreen.storyboard */; };
 		0A76E40F2640534D000F58B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E40E2640534D000F58B2 /* MainViewController.swift */; };
+		93D2756725E1307C7C375D9A /* Pods_CodePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		0A76E40026404BC8000F58B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A76E40226404BC8000F58B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A76E40E2640534D000F58B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.debug.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.debug.xcconfig"; sourceTree = "<group>"; };
+		3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.release.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.release.xcconfig"; sourceTree = "<group>"; };
+		6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodePay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D2756725E1307C7C375D9A /* Pods_CodePay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				0A76E3F326404BC6000F58B2 /* CodePay */,
 				0A76E3F226404BC6000F58B2 /* Products */,
+				C01175B93AAA9026ED496AC7 /* Pods */,
+				FB1F3E08E992D7F7908B2D26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,24 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		C01175B93AAA9026ED496AC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */,
+				3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FB1F3E08E992D7F7908B2D26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A76E40526404BC8000F58B2 /* Build configuration list for PBXNativeTarget "CodePay" */;
 			buildPhases = (
+				DCB66D18DF85130DB0B4BB5F /* [CP] Check Pods Manifest.lock */,
 				0A76E3ED26404BC6000F58B2 /* Sources */,
 				0A76E3EE26404BC6000F58B2 /* Frameworks */,
 				0A76E3EF26404BC6000F58B2 /* Resources */,
+				B213F6483DEEDCFB5ABCF8FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +222,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B213F6483DEEDCFB5ABCF8FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodePay/Pods-CodePay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodePay/Pods-CodePay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodePay/Pods-CodePay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB66D18DF85130DB0B4BB5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CodePay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A76E3ED26404BC6000F58B2 /* Sources */ = {
@@ -339,6 +408,7 @@
 		};
 		0A76E40626404BC8000F58B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -360,6 +430,7 @@
 		};
 		0A76E40726404BC8000F58B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
