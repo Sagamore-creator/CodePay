@@ -3,20 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A21908B2641B4FC00F53B02 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21908A2641B4FC00F53B02 /* UserResponse.swift */; };
+		0A21908D2641B5BD00F53B02 /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21908C2641B5BD00F53B02 /* AccountResponse.swift */; };
+		0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21908E2641B66200F53B02 /* TransactionResponse.swift */; };
+		0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21909B26428D9600F53B02 /* LoginViewController.swift */; };
 		0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E3F426404BC6000F58B2 /* AppDelegate.swift */; };
 		0A76E3F726404BC6000F58B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E3F626404BC6000F58B2 /* SceneDelegate.swift */; };
 		0A76E3FB26404BC8000F58B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FA26404BC8000F58B2 /* Assets.xcassets */; };
 		0A76E3FE26404BC8000F58B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FD26404BC8000F58B2 /* Preview Assets.xcassets */; };
 		0A76E40126404BC8000F58B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FF26404BC8000F58B2 /* LaunchScreen.storyboard */; };
-		0A76E40F2640534D000F58B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E40E2640534D000F58B2 /* MainViewController.swift */; };
 		93D2756725E1307C7C375D9A /* Pods_CodePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A21908A2641B4FC00F53B02 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		0A21908C2641B5BD00F53B02 /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
+		0A21908E2641B66200F53B02 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		0A21909B26428D9600F53B02 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0A76E3F126404BC6000F58B2 /* CodePay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A76E3F426404BC6000F58B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A76E3F626404BC6000F58B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,7 +31,6 @@
 		0A76E3FD26404BC8000F58B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A76E40026404BC8000F58B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A76E40226404BC8000F58B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A76E40E2640534D000F58B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.debug.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.debug.xcconfig"; sourceTree = "<group>"; };
 		3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.release.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.release.xcconfig"; sourceTree = "<group>"; };
 		6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodePay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +48,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A2190892641B4CF00F53B02 /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A21908A2641B4FC00F53B02 /* UserResponse.swift */,
+				0A21908C2641B5BD00F53B02 /* AccountResponse.swift */,
+				0A21908E2641B66200F53B02 /* TransactionResponse.swift */,
+			);
+			path = "Response Models";
+			sourceTree = "<group>";
+		};
+		0A2190902641B77500F53B02 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0A21909B26428D9600F53B02 /* LoginViewController.swift */,
+				0AC96F6E2642C13700A691CB /* UI */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0A2190912641B77F00F53B02 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		0A2190922641B78E00F53B02 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0A2190932641B79B00F53B02 /* Transaction List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Transaction List";
+			sourceTree = "<group>";
+		};
+		0A2190942641B7B000F53B02 /* Transaction Info */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Transaction Info";
+			sourceTree = "<group>";
+		};
+		0A2190952641B7BF00F53B02 /* Add Money */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Add Money";
+			sourceTree = "<group>";
+		};
+		0A2190962641B7CC00F53B02 /* Send Money */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Send Money";
+			sourceTree = "<group>";
+		};
+		0A2190972641B7DD00F53B02 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0A2190982641CFF100F53B02 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				0A2190992641D00800F53B02 /* Entities */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		0A2190992641D00800F53B02 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0A21909A2641D0E500F53B02 /* Transaction Filter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Transaction Filter";
+			sourceTree = "<group>";
+		};
 		0A76E3E826404BC6000F58B2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +199,7 @@
 		0A76E40A26405232000F58B2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				0A2190892641B4CF00F53B02 /* Response Models */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -110,6 +207,7 @@
 		0A76E40B2640524C000F58B2 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				0A2190982641CFF100F53B02 /* Core Data */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -117,25 +215,24 @@
 		0A76E40C2640530B000F58B2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				0A76E410264053A4000F58B2 /* Main */,
+				0A2190902641B77500F53B02 /* Login */,
+				0A2190912641B77F00F53B02 /* Register */,
+				0A2190922641B78E00F53B02 /* Home */,
+				0A2190932641B79B00F53B02 /* Transaction List */,
+				0A21909A2641D0E500F53B02 /* Transaction Filter */,
+				0A2190942641B7B000F53B02 /* Transaction Info */,
+				0A2190952641B7BF00F53B02 /* Add Money */,
+				0A2190962641B7CC00F53B02 /* Send Money */,
+				0A2190972641B7DD00F53B02 /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		0A76E40D26405323000F58B2 /* UI */ = {
+		0AC96F6E2642C13700A691CB /* UI */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		0A76E410264053A4000F58B2 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				0A76E40E2640534D000F58B2 /* MainViewController.swift */,
-				0A76E40D26405323000F58B2 /* UI */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		C01175B93AAA9026ED496AC7 /* Pods */ = {
@@ -144,7 +241,6 @@
 				146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */,
 				3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -270,7 +366,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A76E40F2640534D000F58B2 /* MainViewController.swift in Sources */,
+				0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */,
+				0A21908B2641B4FC00F53B02 /* UserResponse.swift in Sources */,
+				0A21908D2641B5BD00F53B02 /* AccountResponse.swift in Sources */,
+				0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */,
 				0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */,
 				0A76E3F726404BC6000F58B2 /* SceneDelegate.swift in Sources */,
 			);
@@ -424,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.CodePay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -446,7 +545,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.CodePay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
