@@ -6,9 +6,7 @@ import UIKit
 let BorderWidth: CGFloat = 1.0
 let AlphaEnabled: CGFloat = 1.0
 let AlphaDisabled: CGFloat = 0.5
-let ButtonRoundedRadius = RadiusSize.default.value(size: .zero)
-let ClickedDarknessUnit: CGFloat = 0.08
-let ClickedRemovalDelay: TimeInterval = 0.075
+let ButtonRoundedRadius = CornerRadiusSize.default.valueFrom(size: .zero)
 
 // MARK: - Units
 
@@ -50,12 +48,23 @@ enum BorderSize: Int {
 
 // MARK: - Radius Size
 
-enum RadiusSize {
+enum CornerRadiusSize: Int {
     case none
     case `default`
     case round
 
-    func value(size: CGSize) -> CGFloat {
+    var value: CGFloat {
+        switch self {
+        case .none:
+            return 0.units
+        case .default:
+            return 1.units
+        case .round:
+            return 8
+        }
+    }
+
+    func valueFrom(size: CGSize) -> CGFloat {
         switch self {
         case .none:
             return 0.units

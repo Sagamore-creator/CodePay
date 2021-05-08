@@ -4,7 +4,7 @@
 import UIKit
 
 enum CornerRadius: CGFloat {
-    case rounded = 10
+    case round = 8
     case right = 1.0
 }
 
@@ -12,7 +12,7 @@ extension UIView {
 
     func roundCorners(
         _ corners: UIRectCorner,
-        cornerRadius: CornerRadius = .rounded
+        cornerRadius: CornerRadius = .round
     ) {
         let path = UIBezierPath(
             roundedRect: self.bounds,

@@ -30,7 +30,7 @@
 		0AC96FA026431FA900A691CB /* CPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96F9F26431FA900A691CB /* CPViewController.swift */; };
 		0AC96FA2264320E100A691CB /* CPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FA1264320E100A691CB /* CPTableViewCell.swift */; };
 		0AC96FA42643213F00A691CB /* CPReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FA32643213F00A691CB /* CPReusableView.swift */; };
-		0AC96FAA264334AF00A691CB /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FA9264334AF00A691CB /* ButtonStyle.swift */; };
+		0AC96FAA264334AF00A691CB /* ButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FA9264334AF00A691CB /* ButtonTheme.swift */; };
 		0AC96FC626434B8600A691CB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FC526434B8600A691CB /* Button.swift */; };
 		0AC96FCD2644005B00A691CB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FCC2644005B00A691CB /* TextField.swift */; };
 		0AC96FCF2644085500A691CB /* UIComponentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FCE2644085500A691CB /* UIComponentBuilder.swift */; };
@@ -67,7 +67,7 @@
 		0AC96F9F26431FA900A691CB /* CPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPViewController.swift; sourceTree = "<group>"; };
 		0AC96FA1264320E100A691CB /* CPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableViewCell.swift; sourceTree = "<group>"; };
 		0AC96FA32643213F00A691CB /* CPReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPReusableView.swift; sourceTree = "<group>"; };
-		0AC96FA9264334AF00A691CB /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		0AC96FA9264334AF00A691CB /* ButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTheme.swift; sourceTree = "<group>"; };
 		0AC96FC526434B8600A691CB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		0AC96FCC2644005B00A691CB /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		0AC96FCE2644085500A691CB /* UIComponentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentBuilder.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		0AC96F862642FBF400A691CB /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				0AC96FA9264334AF00A691CB /* ButtonStyle.swift */,
+				0AC96FA9264334AF00A691CB /* ButtonTheme.swift */,
 				0AC96F8B2643012500A691CB /* ButtonSize.swift */,
 				0AC96FC526434B8600A691CB /* Button.swift */,
 			);
@@ -499,7 +499,7 @@
 				0AC96F7E2642F84000A691CB /* String+Utilities.swift in Sources */,
 				0AC96F852642FA3300A691CB /* CPView.swift in Sources */,
 				0AC96FA026431FA900A691CB /* CPViewController.swift in Sources */,
-				0AC96FAA264334AF00A691CB /* ButtonStyle.swift in Sources */,
+				0AC96FAA264334AF00A691CB /* ButtonTheme.swift in Sources */,
 				0AC96FA2264320E100A691CB /* CPTableViewCell.swift in Sources */,
 				0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */,
 				0AC96F93264304A000A691CB /* CommonConstants.swift in Sources */,

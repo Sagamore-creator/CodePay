@@ -5,10 +5,15 @@ import UIKit
 
 typealias ButtonTap = () -> Void
 
-class Button: UIButton {
-    private var onTap: ButtonTap?
+enum ButtonStyle: Int {
+    case `default`
+    case filled
+    case hollow
+}
 
-    // MARK: - Initializers
+class Button: UIButton {
+
+    // MARK: - Initialize
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,54 +27,108 @@ class Button: UIButton {
 
     init(
         title: String?,
-        titleColor: ColorPalette? = .white,
-        backgroundColor: ColorPalette? = .brightGray,
-        border: BorderSize? = BorderSize.none,
-        borderColor: ColorPalette? = .clear,
+        style: ButtonStyle? = .default,
         isEnabled: Bool? = true,
         onTap: ButtonTap?
     ) {
         super.init(frame: .zero)
         initialize()
 
-        if let title = title,
-           let titleColor = titleColor,
-           let backgroundColor = backgroundColor,
-           let border = border,
-           let borderColor = borderColor,
-           let isEnabled = isEnabled {
-            setTitle(title, for: .normal)
-            setTitleColor(color(titleColor), for: .normal)
-            self.backgroundColor = color(backgroundColor)
-            layer.borderColor = color(borderColor)?.cgColor
-            self.isEnabled = isEnabled
-            layer.borderWidth = border.value
-            addAction(for: .touchUpInside, onTap!)
-        }
+        updateAppearance(
+            title: title,
+            style: style,
+            onTap: onTap
+        )
     }
 
     private func initialize() {
         showsTouchWhenHighlighted = false
-        layer.cornerRadius = ButtonRoundedRadius
         layer.masksToBounds = true
-        layer.borderWidth = BorderWidth
         addTarget(self, action: #selector(tap), for: .touchDown)
         addTarget(self, action: #selector(tapEnd), for: .touchUpInside)
         addTarget(self, action: #selector(tapCancel), for: .touchCancel)
         addTarget(self, action: #selector(tapCancel), for: .touchUpOutside)
     }
 
-    // MARK: - Actions
+    // MARK: - Appearance
 
-    @objc func tap() {
+    private func updateAppearance(
+        title: String?,
+        style: ButtonStyle?,
+        onTap: ButtonTap?
+    ) {
+        switch style {
+        case .default:
+            defaultButton()
+        case .filled:
+            filledButton()
+        case .hollow:
+            hollowButton()
+        case .none:
+            return
+        }
+        setTitle(title, for: .normal)
+
+        guard let onTap = onTap else { return }
+        addAction(for: .touchUpInside, onTap)
+    }
+
+    private func defaultButton() {
+        setupButtonAppearance(
+            titleColor: .brightGray,
+            backgroundColor: .lightGray,
+            border: .default,
+            borderColor: .brightGray,
+            cornerRadius: .round
+        )
+    }
+
+    private func filledButton() {
+        setupButtonAppearance(
+            titleColor: .lightGray,
+            backgroundColor: .brightGray,
+            border: .none,
+            borderColor: .clear,
+            cornerRadius: .round
+        )
+    }
+
+    private func hollowButton() {
+        setupButtonAppearance(
+            titleColor: .brightGray,
+            backgroundColor: .clear,
+            border: .default,
+            borderColor: .brightGray,
+            cornerRadius: .round
+        )
+    }
+
+    func setupButtonAppearance(
+        titleColor: ColorPalette,
+        backgroundColor: ColorPalette,
+        border: BorderSize,
+        borderColor: ColorPalette,
+        cornerRadius: CornerRadiusSize
+    ) {
+        setTitleColor(color(titleColor), for: .normal)
+        titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        self.backgroundColor = color(backgroundColor)
+        layer.borderColor = color(borderColor)?.cgColor
+        layer.borderWidth = border.value
+        layer.cornerRadius = cornerRadius.value
+    }
+
+    // MARK: - Action animation
+
+    @objc private func tap() {
         fadeOut()
     }
 
-    @objc func tapEnd() {
+    @objc private func tapEnd() {
         fadeIn()
     }
 
-    @objc func tapCancel() {
+    @objc private func tapCancel() {
         fadeIn()
     }
 }
@@ -78,18 +137,17 @@ class Button: UIButton {
 
 extension Button {
 
-    func disableButton() {
-        self.backgroundColor = color(.lightGray)
+    func disable() {
         self.isEnabled = false
     }
 
-    func enableButton() {
-        self.backgroundColor = color(.darkGray)
+    func enable() {
         self.isEnabled = true
     }
 }
 
 extension UIControl {
+
     func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping()->()) {
         addAction(UIAction { (action: UIAction) in closure() }, for: controlEvents)
     }

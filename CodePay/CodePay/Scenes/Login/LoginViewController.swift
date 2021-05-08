@@ -10,37 +10,21 @@ final class LoginViewController: CPViewController {
 
     // MARK: - UI components
 
-    private lazy var phoneNumberTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .systemGray5
-        textField.layer.cornerRadius = CornerRadius.rounded.rawValue
-        textField.textAlignment = .center
-        textField.textColor = color(.darkGray)
-        textField.autocorrectionType = .no
-        textField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        textField.placeholder = "Phone number"
-
-        return textField
+    private lazy var phoneNumberTextField: TextField = {
+        UIComponent.phoneNumberTextField()
     }()
 
     private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .systemGray5
-        textField.layer.cornerRadius = CornerRadius.rounded.rawValue
-        textField.textAlignment = .center
-        textField.textColor = color(.darkGray)
-        textField.autocorrectionType = .no
-        textField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        textField.placeholder = "Password"
-
-        return textField
+        UIComponent.passwordTextField()
     }()
 
     private lazy var loginButton: Button = {
         UIComponent.button(
             title: "Login",
             style: .filled,
-            onTap: {}
+            onTap: { [weak self] in
+                self?.onLoginButtonTap()
+            }
         )
     }()
 
@@ -60,21 +44,7 @@ final class LoginViewController: CPViewController {
 
     // MARK: - Actions
 
-    @objc private func loginButtonTapped() {
-        print("loginButtonTapped Action!")
-    }
-
-    private func firstAction() {
-        print("1: Action!")
-    }
-
-    @objc private func secondAction() {
-        print("2: Action!")
-    }
-
-    private func thirdAction() {
-        print("3: Action!")
-    }
+    private func onLoginButtonTap() {}
 
     // MARK: - Setup View
 

@@ -3,12 +3,6 @@
 
 import UIKit
 
-enum ButtonStyle: Int {
-    case `default`
-    case filled
-    case hollow
-}
-
 enum ButtonTheme: Int {
     case `default`
     case muted

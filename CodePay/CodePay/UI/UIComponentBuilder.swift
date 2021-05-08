@@ -5,17 +5,23 @@ import UIKit
 
 final class UIComponentBuilder {
 
-    // MARK: - Text Fields
+    // MARK: - Text Field
 
-    static func phoneNumberTextField() -> UITextField {
-        UITextField()
+    static func textField(placeholder: String?) -> TextField {
+        TextField(placeholder: placeholder)
     }
 
-    static func passwordTextField() -> UITextField {
-        UITextField()
+    // MARK: - Custom TextFields
+
+    static func phoneNumberTextField() -> TextField {
+        TextField(placeholder: "Phone Number")
     }
 
-    // MARK: - Buttons
+    static func passwordTextField() -> TextField {
+        TextField(placeholder: "Password")
+    }
+
+    // MARK: - Button
 
     static func button(
         title: String,
@@ -24,7 +30,24 @@ final class UIComponentBuilder {
     ) -> Button {
         Button(
             title: title,
+            style: style,
             onTap: onTap
         )
+    }
+
+    // MARK: Custom Buttons
+
+    static func someCustomButton(onTap: @escaping () -> ()) -> Button {
+        let button = Button(title: "Custom Button", onTap: onTap)
+
+        button.setupButtonAppearance(
+            titleColor: .white,
+            backgroundColor: .black,
+            border: .default,
+            borderColor: .white,
+            cornerRadius: .default
+        )
+
+        return button
     }
 }
