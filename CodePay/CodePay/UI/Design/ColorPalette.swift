@@ -5,11 +5,11 @@ import UIKit
 
 public enum ColorPalette: Int {
     case greenBrand
+    case grayDark
     case brightGray
-    case darkGray
     case lightGray
     case redPomegranate
-    case backgroundMain
+    case bluePay
     case black
     case white
     case clear
@@ -18,16 +18,16 @@ public enum ColorPalette: Int {
         switch self {
         case .greenBrand:
             return UIColor(hexString: "158443")
-        case .brightGray:
+        case .grayDark:
             return UIColor(hexString: "3B4048")
-        case .darkGray:
-            return UIColor(hexString: "555555")
+        case .brightGray:
+            return UIColor(hexString: "E1E5EA")
         case .lightGray:
             return UIColor(hexString: "F6F6F6")
         case .redPomegranate:
             return UIColor(hexString: "CF3B2B")
-        case .backgroundMain:
-            return UIColor(hexString: "535454")
+        case .bluePay:
+            return UIColor(hexString: "8AB6D6")
         case .black:
             return .black
         case .white:
@@ -38,6 +38,6 @@ public enum ColorPalette: Int {
     }
 }
 
-public func color(_ colorPalette: ColorPalette) -> UIColor? {
-    colorPalette.colorValue()
+public func color(_ colorPalette: ColorPalette, alpha: CGFloat = 1.0) -> UIColor? {
+    colorPalette.colorValue(alpha: alpha)
 }

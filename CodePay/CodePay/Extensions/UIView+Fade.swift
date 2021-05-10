@@ -7,7 +7,7 @@ extension UIView {
     
     func fadeIn() {
         UIView.animate(
-            withDuration: 0.8,
+            withDuration: 0.5,
             delay: 0.0,
             options: UIView.AnimationOptions.curveEaseIn,
             animations: { [weak self] in
@@ -19,7 +19,7 @@ extension UIView {
 
     func fadeOut() {
         UIView.animate(
-            withDuration: 0.7,
+            withDuration: 0.5,
             delay: 0.0,
             options: UIView.AnimationOptions.curveEaseOut,
             animations: { [weak self] in

@@ -53,24 +53,11 @@ enum TextType: Int {
     var color: ColorPalette {
         switch self {
         case .body:
-            return .darkGray
+            return .grayDark
         case .heading, .title, .userInput:
-            return .darkGray
+            return .grayDark
         case .caption, .subtitle, .label:
-            return .darkGray
+            return .grayDark
         }
     }
-
-//    var font: UIFont {
-//        switch self {
-//        case .body, .subtitle, .caption, .label, .userInput:
-//            return FontRegular(fontSize)
-//        case .heading, .title:
-//            return FontMedium(fontSize)
-//        }
-//    }
-//
-//    var lineSpacePadding: CGFloat {
-//        return (lineHeight - font.lineHeight) / 2
-//    }
 }

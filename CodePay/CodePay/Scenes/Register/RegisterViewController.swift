@@ -11,6 +11,7 @@ final class RegisterViewController: CPViewController {
     }
 
     private let UIComponent = UIComponentBuilder.self
+    //private let currencies = Locale.isoCurrencyCodes
 
     // MARK: - UI components
 
@@ -19,13 +20,11 @@ final class RegisterViewController: CPViewController {
     }()
 
     private lazy var passwordTextField: UITextField = {
-       let textField = UIComponent.passwordTextField()
-        textField.placeholder = "Confirm Password"
-        return textField
+        UIComponent.passwordTextField()
     }()
 
     private lazy var confirmPasswordTextField: UITextField = {
-        UIComponent.passwordTextField()
+        UIComponent.passwordTextField(placeholder: "Confirm Password")
     }()
 
     private lazy var registerButton: UIButton = {
@@ -38,11 +37,22 @@ final class RegisterViewController: CPViewController {
         )
     }()
 
+    private lazy var currencySelectionView: UIView = {
+        UIComponent.selectionView(
+            title: "Currency",
+            value: "USD",
+            onTap: { [weak self] in
+                self?.onCurrencySelectionTap()
+            }
+        )
+    }()
+
     private lazy var components: [UIView] = {
         [
             phoneNumberTextField,
             passwordTextField,
             confirmPasswordTextField,
+            currencySelectionView,
             registerButton
         ]
     }()
@@ -51,6 +61,7 @@ final class RegisterViewController: CPViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print(currencies)
     }
 
     // MARK: - Actions
@@ -58,6 +69,11 @@ final class RegisterViewController: CPViewController {
     private func onRegisterButtonTap() {
         let homeViewController = HomeViewController()
         present(viewController: homeViewController, style: .push)
+    }
+
+    private func onCurrencySelectionTap() {
+        let currencySelectionViewController = SelectCurrencyTableViewController()
+        present(viewController: currencySelectionViewController, style: .push)
     }
 
     // MARK: - Setup View
@@ -95,7 +111,7 @@ final class RegisterViewController: CPViewController {
             make.centerX.equalTo(view)
         }
 
-        registerButton.snp.makeConstraints { make in
+        currencySelectionView.snp.makeConstraints { make in
             make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(20)
             make.height.equalTo(phoneNumberTextField.snp.height)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
@@ -103,6 +119,13 @@ final class RegisterViewController: CPViewController {
             make.centerX.equalTo(view)
         }
 
+        registerButton.snp.makeConstraints { make in
+            make.top.equalTo(currencySelectionView.snp.bottom).offset(20)
+            make.height.equalTo(phoneNumberTextField.snp.height)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.centerX.equalTo(view)
+        }
     }
 }
 

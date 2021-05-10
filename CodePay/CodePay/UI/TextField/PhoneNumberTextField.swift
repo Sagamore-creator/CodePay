@@ -42,7 +42,7 @@ extension PhoneNumberTextField {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "+0123456789").inverted
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
         return (string.rangeOfCharacter(from: invalidCharacters) == nil)
     }
 }

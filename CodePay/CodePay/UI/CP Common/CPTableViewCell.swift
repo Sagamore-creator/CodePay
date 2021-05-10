@@ -4,9 +4,9 @@
 import UIKit
 
 class CPTableViewCell: UITableViewCell, CPReusableView {
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupView()
         setupConstraints()
     }

@@ -45,21 +45,15 @@ class PasswordTextField: TextField {
     }()
 
     @objc private func show() {
-        if isSecureTextEntry == true {
-            isSecureTextEntry = false
-            changeButtonImage(with: image)
-        } else {
-            isSecureTextEntry = true
-            changeButtonImage(with: image)
-        }
+        isSecureTextEntry.toggle()
+        changeButtonImage(with: image)
     }
 
     private var image: UIImage? {
-        if isSecureTextEntry == true {
-            return Icon.passwordShow.image
-        } else {
+        guard isSecureTextEntry else {
             return Icon.passwordHide.image
         }
+        return Icon.passwordShow.image
     }
 
     private func changeButtonImage(with image: UIImage?) {

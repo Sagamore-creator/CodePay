@@ -17,8 +17,8 @@ final class UIComponentBuilder {
         PhoneNumberTextField(placeholder: "Phone Number")
     }
 
-    static func passwordTextField() -> TextField {
-        PasswordTextField(placeholder: "Password")
+    static func passwordTextField(placeholder: String? = "Password") -> TextField {
+        PasswordTextField(placeholder: placeholder)
     }
 
     // MARK: - Button
@@ -36,4 +36,18 @@ final class UIComponentBuilder {
     }
 
     // MARK: Custom Buttons
+
+    // MARK: - Selection View
+
+    static func selectionView(
+        title: String?,
+        value: String?,
+        onTap: @escaping () -> ()
+    ) -> UIView {
+        SelectionView(
+            titleText: title,
+            selectedValue: value,
+            onTap: onTap
+        )
+    }
 }

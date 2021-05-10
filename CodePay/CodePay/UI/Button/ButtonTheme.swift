@@ -13,7 +13,7 @@ enum ButtonTheme: Int {
     var primaryColor: UIColor? {
         switch self {
         case .default:
-            return color(.brightGray)
+            return color(.grayDark)
         case .muted:
             return color(.lightGray)
         case .success:

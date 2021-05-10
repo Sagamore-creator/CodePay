@@ -39,9 +39,9 @@ class TextField: UITextField {
         backgroundColor = color(.lightGray)
         layer.cornerRadius = CornerRadiusSize.round.value
         layer.borderWidth = BorderWidth
-        layer.borderColor = color(.brightGray)?.cgColor
+        layer.borderColor = color(.grayDark)?.cgColor
         textAlignment = .center
-        textColor = color(.darkGray)
+        textColor = color(.grayDark)
         font = UIFont(name: "HelveticaNeue-Bold", size: 20)
     }
 
@@ -49,7 +49,7 @@ class TextField: UITextField {
 
     private lazy var clearButton: UIButton = {
         textFieldButton(
-            with: UIImage(systemName: "clear.fill"),
+            with: Icon.clear.image,
             action: #selector(clear),
             tintColor: .gray
         )
@@ -70,9 +70,9 @@ extension TextField {
         tintColor: UIColor
     ) -> UIButton {
         let button = UIButton()
-        button.setImage(image, for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-        button.contentMode = .scaleAspectFill
+        button.setBackgroundImage(image, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = tintColor
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
@@ -81,6 +81,7 @@ extension TextField {
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         var rightViewRect = super.rightViewRect(forBounds: bounds)
         rightViewRect.origin.x -= 10
+        rightViewRect.size = CGSize(width: 20, height: 20)
         return rightViewRect
     }
 

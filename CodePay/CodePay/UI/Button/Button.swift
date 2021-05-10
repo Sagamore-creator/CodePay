@@ -33,12 +33,8 @@ class Button: UIButton {
     ) {
         super.init(frame: .zero)
         initialize()
-
-        updateAppearance(
-            title: title,
-            style: style,
-            onTap: onTap
-        )
+        updateAppearance(title: title, style: style)
+        performAction(onTap)
     }
 
     private func initialize() {
@@ -52,11 +48,7 @@ class Button: UIButton {
 
     // MARK: - Appearance
 
-    private func updateAppearance(
-        title: String?,
-        style: ButtonStyle?,
-        onTap: ButtonTap?
-    ) {
+    private func updateAppearance(title: String?, style: ButtonStyle?) {
         switch style {
         case .default:
             defaultButton()
@@ -68,17 +60,14 @@ class Button: UIButton {
             return
         }
         setTitle(title, for: .normal)
-
-        guard let onTap = onTap else { return }
-        addAction(for: .touchUpInside, onTap)
     }
 
     private func defaultButton() {
         setupButtonAppearance(
-            titleColor: .brightGray,
+            titleColor: .grayDark,
             backgroundColor: .lightGray,
             border: .default,
-            borderColor: .brightGray,
+            borderColor: .grayDark,
             cornerRadius: .round
         )
     }
@@ -86,7 +75,7 @@ class Button: UIButton {
     private func filledButton() {
         setupButtonAppearance(
             titleColor: .lightGray,
-            backgroundColor: .brightGray,
+            backgroundColor: .grayDark,
             border: .none,
             borderColor: .clear,
             cornerRadius: .round
@@ -95,10 +84,10 @@ class Button: UIButton {
 
     private func hollowButton() {
         setupButtonAppearance(
-            titleColor: .brightGray,
+            titleColor: .grayDark,
             backgroundColor: .clear,
             border: .default,
-            borderColor: .brightGray,
+            borderColor: .grayDark,
             cornerRadius: .round
         )
     }
@@ -118,7 +107,12 @@ class Button: UIButton {
         layer.cornerRadius = cornerRadius.value
     }
 
-    // MARK: - Action animation
+    // MARK: - Actions
+
+    private func performAction(_ onTap: ButtonTap?) {
+        guard let onTap = onTap else { return }
+        addAction(for: .touchUpInside, onTap)
+    }
 
     @objc private func tap() {
         fadeOut()

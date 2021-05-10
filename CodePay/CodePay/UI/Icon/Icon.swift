@@ -18,7 +18,7 @@ enum Icon: Int {
         case .add:
             return UIImage(systemName: "plus.square.fill")
         case .clear:
-            return UIImage(systemName: "clear.fill")
+            return UIImage(systemName: "xmark.circle.fill")
         case .delete:
             return UIImage(systemName: "trash.fill")
         case .passwordShow:
