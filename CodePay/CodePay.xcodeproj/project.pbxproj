@@ -11,6 +11,11 @@
 		0A21908D2641B5BD00F53B02 /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21908C2641B5BD00F53B02 /* AccountResponse.swift */; };
 		0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21908E2641B66200F53B02 /* TransactionResponse.swift */; };
 		0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21909B26428D9600F53B02 /* LoginViewController.swift */; };
+		0A751A252648540500D6FB0A /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A751A242648540500D6FB0A /* PasswordTextField.swift */; };
+		0A751A272648554A00D6FB0A /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A751A262648554A00D6FB0A /* PhoneNumberTextField.swift */; };
+		0A751A292648623C00D6FB0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A751A282648623C00D6FB0A /* HomeViewController.swift */; };
+		0A751A3F2648754000D6FB0A /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A751A3E2648754000D6FB0A /* ViewControllerRepresentable.swift */; };
+		0A751A412648756800D6FB0A /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A751A402648756800D6FB0A /* ViewRepresentable.swift */; };
 		0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E3F426404BC6000F58B2 /* AppDelegate.swift */; };
 		0A76E3F726404BC6000F58B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E3F626404BC6000F58B2 /* SceneDelegate.swift */; };
 		0A76E3FB26404BC8000F58B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FA26404BC8000F58B2 /* Assets.xcassets */; };
@@ -46,6 +51,11 @@
 		0A21908C2641B5BD00F53B02 /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
 		0A21908E2641B66200F53B02 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		0A21909B26428D9600F53B02 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A751A242648540500D6FB0A /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		0A751A262648554A00D6FB0A /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
+		0A751A282648623C00D6FB0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0A751A3E2648754000D6FB0A /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		0A751A402648756800D6FB0A /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		0A76E3F126404BC6000F58B2 /* CodePay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A76E3F426404BC6000F58B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A76E3F626404BC6000F58B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +131,7 @@
 		0A2190922641B78E00F53B02 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0A751A282648623C00D6FB0A /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -180,6 +191,15 @@
 			children = (
 			);
 			path = "Transaction Filter";
+			sourceTree = "<group>";
+		};
+		0A751A3D2648752000D6FB0A /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				0A751A3E2648754000D6FB0A /* ViewControllerRepresentable.swift */,
+				0A751A402648756800D6FB0A /* ViewRepresentable.swift */,
+			);
+			path = Development;
 			sourceTree = "<group>";
 		};
 		0A76E3E826404BC6000F58B2 = {
@@ -295,6 +315,7 @@
 		0AC96F832642FA1C00A691CB /* CP Common */ = {
 			isa = PBXGroup;
 			children = (
+				0A751A3D2648752000D6FB0A /* Development */,
 				0AC96F9F26431FA900A691CB /* CPViewController.swift */,
 				0AC970072645732100A691CB /* CPTableViewController.swift */,
 				0AC96F842642FA3300A691CB /* CPView.swift */,
@@ -337,6 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				0AC96FCC2644005B00A691CB /* TextField.swift */,
+				0A751A242648540500D6FB0A /* PasswordTextField.swift */,
+				0A751A262648554A00D6FB0A /* PhoneNumberTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -482,14 +505,17 @@
 			files = (
 				0AC96FA42643213F00A691CB /* CPReusableView.swift in Sources */,
 				0AC96F8C2643012500A691CB /* ButtonSize.swift in Sources */,
+				0A751A292648623C00D6FB0A /* HomeViewController.swift in Sources */,
 				0AC96FCD2644005B00A691CB /* TextField.swift in Sources */,
 				0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */,
+				0A751A412648756800D6FB0A /* ViewRepresentable.swift in Sources */,
 				0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */,
 				0AC96FCF2644085500A691CB /* UIComponentBuilder.swift in Sources */,
 				0A21908B2641B4FC00F53B02 /* UserResponse.swift in Sources */,
 				0AC96F8F2643033E00A691CB /* TextType.swift in Sources */,
 				0AC970082645732100A691CB /* CPTableViewController.swift in Sources */,
 				0AC97001264567E300A691CB /* UIView+Fade.swift in Sources */,
+				0A751A252648540500D6FB0A /* PasswordTextField.swift in Sources */,
 				0A21908D2641B5BD00F53B02 /* AccountResponse.swift in Sources */,
 				0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */,
 				0AC96F96264310CC00A691CB /* IconSize.swift in Sources */,
@@ -499,9 +525,11 @@
 				0AC96F7E2642F84000A691CB /* String+Utilities.swift in Sources */,
 				0AC96F852642FA3300A691CB /* CPView.swift in Sources */,
 				0AC96FA026431FA900A691CB /* CPViewController.swift in Sources */,
+				0A751A3F2648754000D6FB0A /* ViewControllerRepresentable.swift in Sources */,
 				0AC96FAA264334AF00A691CB /* ButtonTheme.swift in Sources */,
 				0AC96FA2264320E100A691CB /* CPTableViewCell.swift in Sources */,
 				0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */,
+				0A751A272648554A00D6FB0A /* PhoneNumberTextField.swift in Sources */,
 				0AC96F93264304A000A691CB /* CommonConstants.swift in Sources */,
 				0AC96F802642F8AA00A691CB /* UIView+CornerRadius.swift in Sources */,
 				0AC9700326456F8600A691CB /* RegisterViewController.swift in Sources */,

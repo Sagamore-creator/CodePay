@@ -11,14 +11,14 @@ final class UIComponentBuilder {
         TextField(placeholder: placeholder)
     }
 
-    // MARK: - Custom TextFields
+    // MARK: Custom TextFields
 
     static func phoneNumberTextField() -> TextField {
-        TextField(placeholder: "Phone Number")
+        PhoneNumberTextField(placeholder: "Phone Number")
     }
 
     static func passwordTextField() -> TextField {
-        TextField(placeholder: "Password")
+        PasswordTextField(placeholder: "Password")
     }
 
     // MARK: - Button
@@ -36,18 +36,4 @@ final class UIComponentBuilder {
     }
 
     // MARK: Custom Buttons
-
-    static func someCustomButton(onTap: @escaping () -> ()) -> Button {
-        let button = Button(title: "Custom Button", onTap: onTap)
-
-        button.setupButtonAppearance(
-            titleColor: .white,
-            backgroundColor: .black,
-            border: .default,
-            borderColor: .white,
-            cornerRadius: .default
-        )
-
-        return button
-    }
 }

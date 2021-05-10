@@ -5,6 +5,10 @@ import UIKit
 
 class CPViewController: UIViewController {
 
+    deinit {
+        print("CPViewController DEINITED")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -22,6 +26,35 @@ class CPViewController: UIViewController {
 // MARK: - CPViewController Helpers
 
 extension CPViewController {
+
+    // MARK: Navigation
+
+    enum PresentationStyle {
+        case modalFull
+        case modal
+        case push
+    }
+
+    func present(
+        viewController: UIViewController,
+        style: PresentationStyle,
+        animated: Bool = true,
+        completion: (() -> Void)? = nil
+    ) {
+        switch style {
+        case .modalFull:
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: animated, completion: completion)
+        case .modal:
+            let navigationController = UINavigationController(rootViewController: viewController)
+            present(navigationController, animated: animated, completion: completion)
+        case .push:
+            navigationController?.pushViewController(viewController, animated: animated)
+        }
+    }
+
+    // MARK: Views
 
     func addSubViews(_ subViews: [UIView]) {
         for subView in subViews {

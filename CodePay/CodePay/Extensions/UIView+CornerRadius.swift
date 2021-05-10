@@ -3,21 +3,16 @@
 
 import UIKit
 
-enum CornerRadius: CGFloat {
-    case round = 8
-    case right = 1.0
-}
-
 extension UIView {
 
     func roundCorners(
         _ corners: UIRectCorner,
-        cornerRadius: CornerRadius = .round
+        cornerRadius: CornerRadiusSize = .round
     ) {
         let path = UIBezierPath(
             roundedRect: self.bounds,
             byRoundingCorners: corners,
-            cornerRadii: CGSize(width: cornerRadius.rawValue, height: cornerRadius.rawValue)
+            cornerRadii: CGSize(width: cornerRadius.value, height: cornerRadius.value)
         )
 
         let mask = CAShapeLayer()
