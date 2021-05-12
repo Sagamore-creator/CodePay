@@ -4,14 +4,8 @@
 import UIKit
 import SnapKit
 
-final class RegisterViewController: CPViewController {
-
-    deinit {
-        print("RegisterViewController DEINITED")
-    }
-
+final class RegisterViewController: ViewController {
     private let UIComponent = UIComponentBuilder.self
-    //private let currencies = Locale.isoCurrencyCodes
 
     // MARK: - UI components
 
@@ -37,10 +31,10 @@ final class RegisterViewController: CPViewController {
         )
     }()
 
-    private lazy var currencySelectionView: UIView = {
+    private lazy var currencySelectionView: SelectionView = {
         UIComponent.selectionView(
             title: "Currency",
-            value: "USD",
+            value: nil,
             onTap: { [weak self] in
                 self?.onCurrencySelectionTap()
             }
@@ -61,7 +55,6 @@ final class RegisterViewController: CPViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(currencies)
     }
 
     // MARK: - Actions
@@ -72,8 +65,14 @@ final class RegisterViewController: CPViewController {
     }
 
     private func onCurrencySelectionTap() {
-        let currencySelectionViewController = SelectCurrencyTableViewController()
-        present(viewController: currencySelectionViewController, style: .push)
+        let currencySelectionViewController = SelectionTableViewController(with: currency)
+
+        currencySelectionViewController.onDismiss = { [weak self] selection in
+            guard let self = self else { return }
+            self.currencySelectionView.setSelectedValue(selection)
+        }
+
+        present(viewController: currencySelectionViewController, style: .modalFull)
     }
 
     // MARK: - Setup View
@@ -128,15 +127,3 @@ final class RegisterViewController: CPViewController {
         }
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//
-//struct RegisterViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        ViewControllerRepresentable {
-//            return RegisterViewController()
-//        }
-//    }
-//}
-//#endif

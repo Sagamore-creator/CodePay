@@ -3,11 +3,11 @@
 
 import UIKit
 
-protocol CPReusableView {
+protocol ReusableView {
     static var reuseID: String { get }
 }
 
-extension CPReusableView where Self: AnyObject {
+extension ReusableView where Self: AnyObject {
     static var reuseID: String {
         return String(describing: self)
     }

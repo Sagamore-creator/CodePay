@@ -4,7 +4,7 @@
 import UIKit
 import SnapKit
 
-final class HomeViewController: CPViewController {
+final class HomeViewController: ViewController {
 
     deinit {
         print("HomeViewController DEINITED")

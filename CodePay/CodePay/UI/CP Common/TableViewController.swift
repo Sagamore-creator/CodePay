@@ -4,7 +4,7 @@
 import UIKit
 import SnapKit
 
-final class SelectCurrencyTableViewController: CPTableViewController {
+class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -4,7 +4,7 @@
 import UIKit
 import SnapKit
 
-final class LoginViewController: CPViewController {
+final class LoginViewController: ViewController {
 
     deinit {
         print("LoginViewController DEINITED")
@@ -93,7 +93,7 @@ final class LoginViewController: CPViewController {
         }
 
         phoneNumberTextField.snp.makeConstraints { make in
-            make.top.equalTo(logo.snp.bottom).offset(30)
+            make.top.equalTo(logo.snp.bottom).offset(20)
             make.height.equalTo(50)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)

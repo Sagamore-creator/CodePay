@@ -3,7 +3,7 @@
 
 import UIKit
 
-class CPTableViewCell: UITableViewCell, CPReusableView {
+class TableViewCell: UITableViewCell, ReusableView {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -11,8 +11,10 @@ class CPTableViewCell: UITableViewCell, CPReusableView {
         setupConstraints()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+        setupConstraints()
     }
 
     func setupView() {}

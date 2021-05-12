@@ -6,7 +6,7 @@ import UIKit
 typealias ViewTap = () -> Void
 
 class SelectionView: UIView {
-    private var selectedValue: String?
+    var selectedValue: String?
     private var onTap: ViewTap?
 
     private var respondsToTouch: Bool {
@@ -38,9 +38,13 @@ class SelectionView: UIView {
         titleLabel.text = titleText
         selectedValueLabel.text = selectedValue
         tapGestureRecognizer.isEnabled = onTap != nil
-        self.onTap = onTap
-        self.selectedValue = selectedValue
         addGestureRecognizer(tapGestureRecognizer)
+        self.onTap = onTap
+    }
+
+    func setSelectedValue(_ value: String?) {
+        selectedValueLabel.text = value
+        selectedValue = value
     }
 
     // MARK: - Gesture Recognizer

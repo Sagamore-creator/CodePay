@@ -3,7 +3,7 @@
 
 import UIKit
 
-class CPView: UIView {
+class View: UIView {
     init() {
         super.init(frame: .zero)
 

@@ -15,6 +15,8 @@ One more thing is that we have no actual logic in our API here. In real world, b
 
 TL;DR - our API is a "dummy boy". He does not know what is right and what is wrong. Keep that in mind.
 
+Phone numbers are unique - one phone number can be associated with at most one account
+
 ## Base URL for students
 - Anton Jemanov https://60850e319b2bed001704180b.mockapi.io/api/v1/
 - Arvydas Klimavicius https://60888680a6f4a300174268f5.mockapi.io/api/v2/
@@ -37,47 +39,46 @@ TL;DR - our API is a "dummy boy". He does not know what is right and what is wro
 
 Request types available for this endpoint:
 - GET (/user) - returns all User instances (all resources available for this endpoint)
-- GET (/user/id) - this should be used for user authentication. You will provide user id that you are trying to authenticate and API will make a response for you which includes accessToken and expiration time in seconds. After the specified seconds, you will need to re-authenticate in your app (renew accessToken by making a request to this endpoint again). In real world we would use real authentication based on username and password, but since we are limited with API functionality, this will suffice
+- GET (/user/{id}) - this should be used for user authentication. You will provide user id that you are trying to authenticate and API will make a response for you which includes accessToken and expiration time in seconds. After the specified seconds, you will need to re-authenticate in your app (renew accessToken by making a request to this endpoint again). In real world we would use real authentication based on username and password, but since we are limited with API functionality, this will suffice
 - POST (/user) - saves User, specified in request body, to endpoint resources (increasing its count towards 100). If any of the fields in the request body will be empty or mispelled, mockapi.io will pre-fill these values for you - keep that in mind and double-check if you are sending what you think
-- PUT (/user/id) - updates User with specific id with values, provided in request body
-- DELETE (/user/id) - deletes User with specifiec id from endpoint resources
+- PUT (/user/{id}) - updates User with specific id with values, provided in request body
+- DELETE (/user/{id}) - deletes User with specified id from endpoint resources
 ---
 **/account**
 - id (unique object ID in range 1-100, provided by mockapi.io)
 - phoneNumber (String)
 - currency (String, e.g. EUR, NOK etc)
-- balance (Number)
+- balance (NSDecimal)
 
 Request types available for this endpoint:
 - GET (/account) - returns all Account instances (all resources available for this endpoint)
-- GET with ID (/account/id) - returns Account with specified id
+- GET with ID (/account/{id}) - returns Account with specified id
 - POST (/account) - saves Account, specified in request body, to endpoint resources (increasing its count towards 100). If any of the fields in the request body will be empty or mispelled, mockapi.io will pre-fill these values for you - keep that in mind and double-check if you are sending what you think
-- PUT (/account/id) - updates Account with specified id with values, provided in request body
-- DELETE (/account/id) - deletes Account with specified id from endpoint resources
+- PUT (/account/{id}) - updates Account with specified id with values, provided in request body
+- DELETE (/account/{id}) - deletes Account with specified id from endpoint resources
 ---
 **/transaction**
 - id (unique object ID in range 1-100, provided by mockapi.io)
 - senderId (String)
 - receiverId (String)
-- amount (Number)
+- amount (NSDecimal)
 - currency (String)
-- createdOn (Number, unix timestamp)
+- createdOn (Int, unix timestamp)
 - reference (String, purpose of the transaction)
 
 Request types available for this endpoint:
 - GET (/transaction) - returns all Transaction instances (all resources available for this endpoint)
-- GET with ID (/transaction/id) - returns Transaction with specified id
+- GET with ID (/transaction/{id}) - returns Transaction with specified id
 - POST (/transaction) - saves Transaction, specified in request body, to endpoint resources (increasing its count towards 100). If any of the fields in the request body will be empty or mispelled, mockapi.io will pre-fill these values for you - keep that in mind and double-check if you are sending what you think
-- DELETE (/account/id) - deletes Transaction with specified id from endpoint resources
+- DELETE (/account/{id}) - deletes Transaction with specified id from endpoint resources
 
 ## Search parameters
 Add query params to GET request:
 
-- `/blogs?search=blog1` - search by all fields for string `blog1`
-- `/blogs?title=cool%20blog` - search by `title` field for string `cool blog` (you need to use percent encoding for all special chars, in this case - whitespace. More about this https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding)
+- `mockapi.io/api/v1/user?search=37069069069` - search by all fields for string `37069069069`
+- `mockapi.io/api/v1/user?phoneNumber=37069069069` - search by `phoneNumber` field for string `37069069069` (you need to use percent encoding for whitespaces, use `%20` instead of whitespace)
 
 # UI
-
 You are free to make any UI based on the requirements. You can use your favourite banking application as an inspiration.
 
 # Scenes
@@ -134,35 +135,37 @@ Show all current account transactions loaded from local storage
 ## Transaction Info 
 - Outgoing or incoming transaction
 - Formatted date
-- Sender phone number
-- Receiver phone number
+- Sender phone number (logical to show this only on incoming transactions)
+- Receiver phone number (logical to show this only on outgoing transactions)
 - Note (reference)
 - Amount and currency
-- Repeat button (Opens prefilled Send Money scene)
+- Repeat button (Opens prefilled Send Money scene) (logical to show this only when you are sender)
 
 ## Add Money
 - Enter amount and PUT new balance (/account)
 
 ## Send Money
-- Recepient phone number
+- Recipient phone number
 - Prefill sender currency
 - Add note (reference)
 - Enter sum
 
 Validation
-- Check if recepient exists
-- Check if recepient currency is equal to your currency
+- Check if recipient exists
+- Check if recipient currency is equal to your currency
 - Check if your sender balance is sufficient
 
 After validation
 - Create new trasaction and POST (/transaction)
-- Change recepient Account balance and PUT (/account)
+- Change recipient Account balance and PUT (/account)
 - Change sender Account balance and PUT (/account)
 
 ## Settings
 - Update password (/user)
 - Update currency (/account)
 - Update phone number (first update /user, then update /account, then update locally saved information)
+
+When updating phone number, do not change history. Old transactions will contain old phone number, new ones - new phone number
 
 # Technical Requirements
 
@@ -176,11 +179,14 @@ After validation
 - Functions with clear purpose, without unexpected side-effects
 - Use “weak” when needed
 
+## Networking
+- You can use 3rd party libraries for networking (such as Alamofire), if you want
+
 ## Storage
 - Use `UserDefaults` and `CoreData`
 - Fetch and save transactions and accounts locally
 - Create a relationship between `Transaction` and `Account`
-- In API, transaction has fields for sender and receiver ids. In local storage, keep reference to sender and receiver `Account` instead of ids. 
+- In API, transaction has fields for sender and receiver ids. In local storage, keep reference to sender and receiver `Account` instead of ids
 
 ## UI
 - Application should only support `Vertical` orientation
@@ -194,8 +200,8 @@ After validation
 We will evaluate:
 
 1. **User side** - we will be your application users and see if we can break them. We will check if everything works as expected, there are no unhandled scenarios, there are no crashes or other things that could affect user experience
-2. **Code functionality** - this is similar to user functionality testing but this time we will go into your code and check if everything is handled correctly code-wise. We will check if you used appropriate things for specific tasks, if there are no loopholes, if everything is handled correctly etc. In other words, we will check how you implement requirements code-wise.
-3. **Code cleanliness** - in this part we will check is your code clean. Do you split your functions, do you use extensions, if code is structured correctly, if you use proper naming, is styling okay etc.
+2. **Code functionality** - this is similar to user functionality testing but this time we will go into your code and check if everything is handled correctly code-wise. We will check if you used appropriate things for specific tasks, if there are no loopholes, if everything is handled correctly etc. In other words, we will check how you implement requirements code-wise
+3. **Code cleanliness** - in this part we will check is your code clean. Do you split your functions, do you use extensions, if code is structured correctly, if you use proper naming, is styling okay etc
 
 # Deadline
 The work needs to be sent as an archive to Arnas via Teams private message until **2021-05-16**

@@ -43,7 +43,7 @@ final class UIComponentBuilder {
         title: String?,
         value: String?,
         onTap: @escaping () -> ()
-    ) -> UIView {
+    ) -> SelectionView {
         SelectionView(
             titleText: title,
             selectedValue: value,

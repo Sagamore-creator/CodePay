@@ -2,8 +2,9 @@
 //
 
 import UIKit
+import SnapKit
 
-class CPViewController: UIViewController {
+class ViewController: UIViewController {
 
     deinit {
         print("CPViewController DEINITED")
@@ -17,15 +18,18 @@ class CPViewController: UIViewController {
 
     func setupView(with views: [UIView] = []) {
         view.backgroundColor = .white
-        addSubViews(views)
+        addSubViews(for: views)
+        addConstraints(for: views)
     }
 
     func setupConstraints() {}
+
+    private func addConstraints(for: [UIView]) {} // IF i have spare time ill make it
 }
 
 // MARK: - CPViewController Helpers
 
-extension CPViewController {
+extension ViewController {
 
     // MARK: Navigation
 
@@ -33,6 +37,7 @@ extension CPViewController {
         case modalFull
         case modal
         case push
+        case show
     }
 
     func present(
@@ -45,20 +50,25 @@ extension CPViewController {
         case .modalFull:
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.modalPresentationStyle = .fullScreen
+            navigationController.modalTransitionStyle = .crossDissolve
             present(navigationController, animated: animated, completion: completion)
         case .modal:
             let navigationController = UINavigationController(rootViewController: viewController)
             present(navigationController, animated: animated, completion: completion)
         case .push:
             navigationController?.pushViewController(viewController, animated: animated)
+        case .show:
+            navigationController?.show(viewController, sender: self)
         }
     }
 
+// MARK: - Helpers
+
     // MARK: Views
 
-    func addSubViews(_ subViews: [UIView]) {
-        for subView in subViews {
-            view.addSubview(subView)
+    func addSubViews(for views: [UIView]) {
+        for view in views {
+            self.view.addSubview(view)
         }
     }
 
