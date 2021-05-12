@@ -7,6 +7,10 @@ import SnapKit
 final class RegisterViewController: ViewController {
     private let UIComponent = UIComponentBuilder.self
 
+    deinit {
+        print("RegisterViewController DEINITED")
+    }
+
     // MARK: - UI components
 
     private lazy var phoneNumberTextField: UITextField = {
@@ -61,7 +65,7 @@ final class RegisterViewController: ViewController {
 
     private func onRegisterButtonTap() {
         let homeViewController = HomeViewController()
-        present(viewController: homeViewController, style: .push)
+        present(viewController: homeViewController, style: .modalFull)
     }
 
     private func onCurrencySelectionTap() {

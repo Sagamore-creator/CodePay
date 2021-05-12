@@ -24,6 +24,11 @@
 		0A76E3FE26404BC8000F58B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FD26404BC8000F58B2 /* Preview Assets.xcassets */; };
 		0A76E40126404BC8000F58B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FF26404BC8000F58B2 /* LaunchScreen.storyboard */; };
 		0AACFEE4264A8C540095D031 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEE3264A8C540095D031 /* SelectionCell.swift */; };
+		0AACFEFB264C14310095D031 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFA264C14310095D031 /* APIEndpoint.swift */; };
+		0AACFEFF264C1E100095D031 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFE264C1E100095D031 /* APIManager.swift */; };
+		0AACFF01264C21040095D031 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF00264C21040095D031 /* UserManager.swift */; };
+		0AACFF03264C81910095D031 /* CheckUserTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */; };
+		0AACFF05264C837E0095D031 /* APILoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF04264C837E0095D031 /* APILoginManager.swift */; };
 		0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96F792642F6FA00A691CB /* ColorPalette.swift */; };
 		0AC96F7C2642F75500A691CB /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96F7B2642F75500A691CB /* UIColor+Hex.swift */; };
 		0AC96F7E2642F84000A691CB /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96F7D2642F84000A691CB /* String+Utilities.swift */; };
@@ -68,6 +73,11 @@
 		0A76E40026404BC8000F58B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A76E40226404BC8000F58B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AACFEE3264A8C540095D031 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
+		0AACFEFA264C14310095D031 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		0AACFEFE264C1E100095D031 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0AACFF00264C21040095D031 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserTokenResponse.swift; sourceTree = "<group>"; };
+		0AACFF04264C837E0095D031 /* APILoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoginManager.swift; sourceTree = "<group>"; };
 		0AC96F792642F6FA00A691CB /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		0AC96F7B2642F75500A691CB /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		0AC96F7D2642F84000A691CB /* String+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 				0A21908A2641B4FC00F53B02 /* UserResponse.swift */,
 				0A21908C2641B5BD00F53B02 /* AccountResponse.swift */,
 				0A21908E2641B66200F53B02 /* TransactionResponse.swift */,
+				0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -292,6 +303,9 @@
 			isa = PBXGroup;
 			children = (
 				0A2190892641B4CF00F53B02 /* Response Models */,
+				0AACFEFA264C14310095D031 /* APIEndpoint.swift */,
+				0AACFEFE264C1E100095D031 /* APIManager.swift */,
+				0AACFF04264C837E0095D031 /* APILoginManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -300,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2190982641CFF100F53B02 /* Core Data */,
+				0AACFF00264C21040095D031 /* UserManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -519,10 +534,13 @@
 			files = (
 				0AC96FA42643213F00A691CB /* ReusableView.swift in Sources */,
 				0A751A292648623C00D6FB0A /* HomeViewController.swift in Sources */,
+				0AACFF01264C21040095D031 /* UserManager.swift in Sources */,
 				0AC96FCD2644005B00A691CB /* TextField.swift in Sources */,
 				0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */,
 				0A751A412648756800D6FB0A /* ViewRepresentable.swift in Sources */,
+				0AACFF05264C837E0095D031 /* APILoginManager.swift in Sources */,
 				0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */,
+				0AACFEFF264C1E100095D031 /* APIManager.swift in Sources */,
 				0AC96FCF2644085500A691CB /* UIComponentBuilder.swift in Sources */,
 				0A21908B2641B4FC00F53B02 /* UserResponse.swift in Sources */,
 				0A751A4E26499ABA00D6FB0A /* SelectionView.swift in Sources */,
@@ -536,6 +554,7 @@
 				0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */,
 				0AC96F96264310CC00A691CB /* IconSize.swift in Sources */,
 				0AC96F982643113F00A691CB /* Icon.swift in Sources */,
+				0AACFEFB264C14310095D031 /* APIEndpoint.swift in Sources */,
 				0AC96F7C2642F75500A691CB /* UIColor+Hex.swift in Sources */,
 				0AC96F822642F92C00A691CB /* UIActivityIndicator+Animating.swift in Sources */,
 				0AC96F7E2642F84000A691CB /* String+Utilities.swift in Sources */,
@@ -551,6 +570,7 @@
 				0AC9700326456F8600A691CB /* RegisterViewController.swift in Sources */,
 				0AC97006264572D900A691CB /* SelectionTableViewController.swift in Sources */,
 				0A76E3F726404BC6000F58B2 /* SceneDelegate.swift in Sources */,
+				0AACFF03264C81910095D031 /* CheckUserTokenResponse.swift in Sources */,
 				0AC96FC626434B8600A691CB /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

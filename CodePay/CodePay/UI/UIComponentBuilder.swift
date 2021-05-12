@@ -35,8 +35,6 @@ final class UIComponentBuilder {
         )
     }
 
-    // MARK: Custom Buttons
-
     // MARK: - Selection View
 
     static func selectionView(

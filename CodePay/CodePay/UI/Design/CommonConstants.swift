@@ -8,14 +8,13 @@ let AlphaEnabled: CGFloat = 1.0
 let AlphaDisabled: CGFloat = 0.5
 let ButtonRoundedRadius = CornerRadiusSize.default.valueFrom(size: .zero)
 
-// MARK: - Currency TEMPORARY
+// MARK: - Currency TEMPORARY!
 
 var currency: [Currency] = [
     Currency(title: "USD"),
     Currency(title: "EUR"),
     Currency(title: "LT"),
-    Currency(title: "ZL"),
-    Currency(title: "NOK")
+    Currency(title: "ZŁ")
 ]
 
 // MARK: - Units

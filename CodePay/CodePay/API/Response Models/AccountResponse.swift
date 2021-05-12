@@ -1,7 +1,3 @@
-//
-//  AccountResponse.swift
-//  CodePay
-//
 //  Created by Lech Lipnicki on 2021-05-04.
 //
 
@@ -13,3 +9,20 @@ struct AccountResponse: Codable {
     let currency: String // EUR, USD etc.
     let balance: Decimal
 }
+
+/*
+
+ GET
+ /account - returns all Account instances
+ /account/{id} - returns Account with specified id
+
+ POST
+ /account - saves Account, specified in request body, to endpoint resources
+
+ PUT
+ /account/{id} - updates Account with specified id with values, provided in request body
+
+ DELETE
+ /account/{id} - deletes Account with specified id from endpoint resources
+
+ */

@@ -66,7 +66,7 @@ final class LoginViewController: ViewController {
 
     private func onLoginButtonTap() {
         let homeViewController = HomeViewController()
-        present(viewController: homeViewController, style: .push)
+        present(viewController: homeViewController, style: .modalFull)
     }
 
     private func onRegisterButtonTap() {
