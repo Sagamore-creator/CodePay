@@ -14,7 +14,7 @@ final class Currency {
     }
 }
 
-final class SelectionTableViewController: TableViewController {
+final class CurrencyTableViewController: TableViewController {
     var onDismiss: ((_ pass: String) -> Void)?
     private var currencyArray: [Currency] = []
 
@@ -52,14 +52,14 @@ final class SelectionTableViewController: TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectionCell", for: indexPath)
         let currency = currencyArray[indexPath.row]
 
-        guard let objectCell = cell as? SelectionCell else {
+        guard let currencyCell = cell as? SelectionCell else {
             return cell
         }
 
-        objectCell.configureCell(with: currency.title)
+        currencyCell.configureCell(with: currency.title)
 
-        objectCell.accessoryType = currency.isSelected ? .checkmark : .none
-        return objectCell
+        currencyCell.accessoryType = currency.isSelected ? .checkmark : .none
+        return currencyCell
     }
 
 
@@ -82,7 +82,7 @@ final class SelectionTableViewController: TableViewController {
 
 // MARK: - UITableViewDelegate helpers
 
-private extension SelectionTableViewController {
+private extension CurrencyTableViewController {
 
     func selectRow(with title: String?) {
         currencyArray.first(where: { $0.title == title})?.isSelected = true

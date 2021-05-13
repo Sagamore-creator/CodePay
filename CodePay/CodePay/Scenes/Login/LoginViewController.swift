@@ -60,6 +60,15 @@ final class LoginViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        AccountsRoute.getAccounts().result { result in
+            switch result {
+            case.success(let accounts):
+                print("ACCOUNTS: \(accounts)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     // MARK: - Actions

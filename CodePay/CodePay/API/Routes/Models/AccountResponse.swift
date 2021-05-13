@@ -3,10 +3,12 @@
 
 import Foundation
 
-struct AccountResponse: Codable {
-    let id: Int // 1-100 range
+typealias Accounts = [AccountResponse]
+
+struct AccountResponse: Decodable {
+    let id: Int
     let phoneNumber: String
-    let currency: String // EUR, USD etc.
+    let currency: String
     let balance: Decimal
 }
 

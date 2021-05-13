@@ -1,7 +1,3 @@
-//
-//  SceneDelegate.swift
-//  CodePay
-//
 //  Created by Lech Lipnicki on 2021-05-03.
 //
 
@@ -33,5 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {}
 
-    func sceneDidEnterBackground(_ scene: UIScene) {}
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        CoreDataManager.saveContext()
+    }
 }

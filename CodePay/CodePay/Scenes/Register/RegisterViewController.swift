@@ -6,6 +6,7 @@ import SnapKit
 
 final class RegisterViewController: ViewController {
     private let UIComponent = UIComponentBuilder.self
+    private var selectedCurrency: String = ""
 
     deinit {
         print("RegisterViewController DEINITED")
@@ -69,11 +70,12 @@ final class RegisterViewController: ViewController {
     }
 
     private func onCurrencySelectionTap() {
-        let currencySelectionViewController = SelectionTableViewController(with: currency)
+        let currencySelectionViewController = CurrencyTableViewController(with: currency)
 
-        currencySelectionViewController.onDismiss = { [weak self] selection in
+        currencySelectionViewController.onDismiss = { [weak self] currency in
             guard let self = self else { return }
-            self.currencySelectionView.setSelectedValue(selection)
+            self.currencySelectionView.setSelectedValue(currency)
+            self.selectedCurrency = currency
         }
 
         present(viewController: currencySelectionViewController, style: .modalFull)

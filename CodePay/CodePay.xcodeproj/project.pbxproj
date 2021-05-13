@@ -25,7 +25,6 @@
 		0A76E40126404BC8000F58B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FF26404BC8000F58B2 /* LaunchScreen.storyboard */; };
 		0AACFEE4264A8C540095D031 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEE3264A8C540095D031 /* SelectionCell.swift */; };
 		0AACFEFB264C14310095D031 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFA264C14310095D031 /* APIEndpoint.swift */; };
-		0AACFEFF264C1E100095D031 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFEFE264C1E100095D031 /* APIManager.swift */; };
 		0AACFF01264C21040095D031 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF00264C21040095D031 /* UserManager.swift */; };
 		0AACFF03264C81910095D031 /* CheckUserTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */; };
 		0AACFF05264C837E0095D031 /* APILoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AACFF04264C837E0095D031 /* APILoginManager.swift */; };
@@ -48,8 +47,15 @@
 		0AC96FCF2644085500A691CB /* UIComponentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC96FCE2644085500A691CB /* UIComponentBuilder.swift */; };
 		0AC97001264567E300A691CB /* UIView+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC97000264567E300A691CB /* UIView+Fade.swift */; };
 		0AC9700326456F8600A691CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9700226456F8600A691CB /* RegisterViewController.swift */; };
-		0AC97006264572D900A691CB /* SelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC97005264572D900A691CB /* SelectionTableViewController.swift */; };
+		0AC97006264572D900A691CB /* CurrencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC97005264572D900A691CB /* CurrencyTableViewController.swift */; };
 		0AC970082645732100A691CB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC970072645732100A691CB /* TableViewController.swift */; };
+		0AD94DCD264D404100A42756 /* CodePayDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DCB264D404000A42756 /* CodePayDataModel.xcdatamodeld */; };
+		0AD94DCF264D413800A42756 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DCE264D413800A42756 /* CoreDataManager.swift */; };
+		0AD94DD2264D4B6800A42756 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DD1264D4B6800A42756 /* Route.swift */; };
+		0AD94DD7264D50B000A42756 /* TransactionsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DD6264D50B000A42756 /* TransactionsRoute.swift */; };
+		0AD94DD9264D50C800A42756 /* UsersRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DD8264D50C800A42756 /* UsersRoute.swift */; };
+		0AD94DDB264D50DE00A42756 /* AccountsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DDA264D50DE00A42756 /* AccountsRoute.swift */; };
+		0AD94DDD264D50FB00A42756 /* TokenRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD94DDC264D50FB00A42756 /* TokenRoute.swift */; };
 		93D2756725E1307C7C375D9A /* Pods_CodePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +80,6 @@
 		0A76E40226404BC8000F58B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AACFEE3264A8C540095D031 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
 		0AACFEFA264C14310095D031 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
-		0AACFEFE264C1E100095D031 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0AACFF00264C21040095D031 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserTokenResponse.swift; sourceTree = "<group>"; };
 		0AACFF04264C837E0095D031 /* APILoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoginManager.swift; sourceTree = "<group>"; };
@@ -97,8 +102,15 @@
 		0AC96FCE2644085500A691CB /* UIComponentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentBuilder.swift; sourceTree = "<group>"; };
 		0AC97000264567E300A691CB /* UIView+Fade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Fade.swift"; sourceTree = "<group>"; };
 		0AC9700226456F8600A691CB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		0AC97005264572D900A691CB /* SelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewController.swift; sourceTree = "<group>"; };
+		0AC97005264572D900A691CB /* CurrencyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewController.swift; sourceTree = "<group>"; };
 		0AC970072645732100A691CB /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		0AD94DCC264D404000A42756 /* CodePayDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodePayDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0AD94DCE264D413800A42756 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0AD94DD1264D4B6800A42756 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		0AD94DD6264D50B000A42756 /* TransactionsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRoute.swift; sourceTree = "<group>"; };
+		0AD94DD8264D50C800A42756 /* UsersRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRoute.swift; sourceTree = "<group>"; };
+		0AD94DDA264D50DE00A42756 /* AccountsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsRoute.swift; sourceTree = "<group>"; };
+		0AD94DDC264D50FB00A42756 /* TokenRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRoute.swift; sourceTree = "<group>"; };
 		146AD237C57C3E161B0862CF /* Pods-CodePay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.debug.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.debug.xcconfig"; sourceTree = "<group>"; };
 		3F0721B476702D91F8E3DAD2 /* Pods-CodePay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodePay.release.xcconfig"; path = "Target Support Files/Pods-CodePay/Pods-CodePay.release.xcconfig"; sourceTree = "<group>"; };
 		6132BBB8CFB7B8A01722D8A4 /* Pods_CodePay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodePay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +128,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A2190892641B4CF00F53B02 /* Response Models */ = {
+		0A2190892641B4CF00F53B02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0A21908A2641B4FC00F53B02 /* UserResponse.swift */,
@@ -124,7 +136,7 @@
 				0A21908E2641B66200F53B02 /* TransactionResponse.swift */,
 				0AACFF02264C81900095D031 /* CheckUserTokenResponse.swift */,
 			);
-			path = "Response Models";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0A2190902641B77500F53B02 /* Login */ = {
@@ -139,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC9700226456F8600A691CB /* RegisterViewController.swift */,
+				0AC97005264572D900A691CB /* CurrencyTableViewController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -190,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				0A2190992641D00800F53B02 /* Entities */,
+				0AD94DCB264D404000A42756 /* CodePayDataModel.xcdatamodeld */,
+				0AD94DCE264D413800A42756 /* CoreDataManager.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -222,7 +237,6 @@
 			children = (
 				0A751A4D26499ABA00D6FB0A /* SelectionView.swift */,
 				0AACFEE3264A8C540095D031 /* SelectionCell.swift */,
-				0AC97005264572D900A691CB /* SelectionTableViewController.swift */,
 			);
 			path = SelectionView;
 			sourceTree = "<group>";
@@ -302,9 +316,8 @@
 		0A76E40A26405232000F58B2 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				0A2190892641B4CF00F53B02 /* Response Models */,
+				0AD94DD0264D4B4400A42756 /* Routes */,
 				0AACFEFA264C14310095D031 /* APIEndpoint.swift */,
-				0AACFEFE264C1E100095D031 /* APIManager.swift */,
 				0AACFF04264C837E0095D031 /* APILoginManager.swift */,
 			);
 			path = API;
@@ -399,6 +412,27 @@
 				0A751A262648554A00D6FB0A /* PhoneNumberTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		0AD94DD0264D4B4400A42756 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				0AD94DD1264D4B6800A42756 /* Route.swift */,
+				0AD94DD5264D505800A42756 /* Route */,
+				0A2190892641B4CF00F53B02 /* Models */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		0AD94DD5264D505800A42756 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				0AD94DDA264D50DE00A42756 /* AccountsRoute.swift */,
+				0AD94DD6264D50B000A42756 /* TransactionsRoute.swift */,
+				0AD94DD8264D50C800A42756 /* UsersRoute.swift */,
+				0AD94DDC264D50FB00A42756 /* TokenRoute.swift */,
+			);
+			path = Route;
 			sourceTree = "<group>";
 		};
 		C01175B93AAA9026ED496AC7 /* Pods */ = {
@@ -538,17 +572,19 @@
 				0AC96FCD2644005B00A691CB /* TextField.swift in Sources */,
 				0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */,
 				0A751A412648756800D6FB0A /* ViewRepresentable.swift in Sources */,
+				0AD94DD9264D50C800A42756 /* UsersRoute.swift in Sources */,
 				0AACFF05264C837E0095D031 /* APILoginManager.swift in Sources */,
 				0A21909C26428D9600F53B02 /* LoginViewController.swift in Sources */,
-				0AACFEFF264C1E100095D031 /* APIManager.swift in Sources */,
 				0AC96FCF2644085500A691CB /* UIComponentBuilder.swift in Sources */,
 				0A21908B2641B4FC00F53B02 /* UserResponse.swift in Sources */,
 				0A751A4E26499ABA00D6FB0A /* SelectionView.swift in Sources */,
+				0AD94DCF264D413800A42756 /* CoreDataManager.swift in Sources */,
 				0AC96F8F2643033E00A691CB /* TextType.swift in Sources */,
 				0AACFEE4264A8C540095D031 /* SelectionCell.swift in Sources */,
 				0AC970082645732100A691CB /* TableViewController.swift in Sources */,
 				0AC97001264567E300A691CB /* UIView+Fade.swift in Sources */,
 				0A751A252648540500D6FB0A /* PasswordTextField.swift in Sources */,
+				0AD94DDB264D50DE00A42756 /* AccountsRoute.swift in Sources */,
 				0A21908D2641B5BD00F53B02 /* AccountResponse.swift in Sources */,
 				0A751A512649A16800D6FB0A /* Label.swift in Sources */,
 				0A21908F2641B66200F53B02 /* TransactionResponse.swift in Sources */,
@@ -559,16 +595,20 @@
 				0AC96F822642F92C00A691CB /* UIActivityIndicator+Animating.swift in Sources */,
 				0AC96F7E2642F84000A691CB /* String+Utilities.swift in Sources */,
 				0AC96F852642FA3300A691CB /* View.swift in Sources */,
+				0AD94DDD264D50FB00A42756 /* TokenRoute.swift in Sources */,
 				0AC96FA026431FA900A691CB /* ViewController.swift in Sources */,
 				0A751A3F2648754000D6FB0A /* ViewControllerRepresentable.swift in Sources */,
 				0AC96FAA264334AF00A691CB /* ButtonTheme.swift in Sources */,
+				0AD94DD2264D4B6800A42756 /* Route.swift in Sources */,
+				0AD94DCD264D404100A42756 /* CodePayDataModel.xcdatamodeld in Sources */,
 				0AC96FA2264320E100A691CB /* TableViewCell.swift in Sources */,
 				0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */,
 				0A751A272648554A00D6FB0A /* PhoneNumberTextField.swift in Sources */,
 				0AC96F93264304A000A691CB /* CommonConstants.swift in Sources */,
 				0AC96F802642F8AA00A691CB /* UIView+CornerRadius.swift in Sources */,
+				0AD94DD7264D50B000A42756 /* TransactionsRoute.swift in Sources */,
 				0AC9700326456F8600A691CB /* RegisterViewController.swift in Sources */,
-				0AC97006264572D900A691CB /* SelectionTableViewController.swift in Sources */,
+				0AC97006264572D900A691CB /* CurrencyTableViewController.swift in Sources */,
 				0A76E3F726404BC6000F58B2 /* SceneDelegate.swift in Sources */,
 				0AACFF03264C81910095D031 /* CheckUserTokenResponse.swift in Sources */,
 				0AC96FC626434B8600A691CB /* Button.swift in Sources */,
@@ -771,6 +811,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0AD94DCB264D404000A42756 /* CodePayDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0AD94DCC264D404000A42756 /* CodePayDataModel.xcdatamodel */,
+			);
+			currentVersion = 0AD94DCC264D404000A42756 /* CodePayDataModel.xcdatamodel */;
+			path = CodePayDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0A76E3E926404BC6000F58B2 /* Project object */;
 }
