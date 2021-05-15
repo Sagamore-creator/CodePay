@@ -6,10 +6,6 @@ import SnapKit
 
 final class LoginViewController: ViewController {
 
-    deinit {
-        print("LoginViewController DEINITED")
-    }
-
     private let UIComponent = UIComponentBuilder.self
 
     // MARK: - UI components
@@ -60,15 +56,6 @@ final class LoginViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        AccountsRoute.getAccounts().result { result in
-            switch result {
-            case.success(let accounts):
-                print("ACCOUNTS: \(accounts)")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
     
     // MARK: - Actions
@@ -87,8 +74,7 @@ final class LoginViewController: ViewController {
 
     override func setupView(with views: [UIView]) {
         super.setupView(with: components)
-        title = "LOGIN SCENE"
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func setupConstraints() {
@@ -134,15 +120,3 @@ final class LoginViewController: ViewController {
         }
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//
-//struct LoginViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        ViewControllerRepresentable {
-//            return LoginViewController()
-//        }
-//    }
-//}
-//#endif

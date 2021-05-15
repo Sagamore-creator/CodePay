@@ -9,23 +9,6 @@ class Route<ResultType> {
         case invalidEndpoint(String)
         case badResponse(URLResponse?)
     }
-
-    enum Endpoint: Int {
-        case user
-        case account
-        case transaction
-
-        var value: String {
-            switch self {
-            case .user:
-                return "/user"
-            case .account:
-                return "/account"
-            case .transaction:
-                return "/transaction"
-            }
-        }
-    }
     
     enum Method: String {
         case get
@@ -41,7 +24,7 @@ class Route<ResultType> {
     let session: URLSession
 
     init(
-        baseURL: String,
+        baseURL: String = API.baseURL,
         endpoint: String,
         method: Method = .get,
         params: Encodable? = nil,
@@ -55,6 +38,7 @@ class Route<ResultType> {
     }
 
     func makeRequest() throws -> URLRequest {
+        let encoder = JSONEncoder()
 
         guard let url = URL(string: baseURL)?.appendingPathComponent(endpoint) else {
             throw Error.invalidEndpoint(endpoint)
@@ -66,29 +50,26 @@ class Route<ResultType> {
         var httpBody: Data?
 
         if let params = params {
-            httpBody = try JSONEncoder().encode(AnyEncodable(value: params))
+            httpBody = try encoder.encode(AnyEncodable(value: params))
         }
 
         if case .get = method {
-
             var urlComponents = URLComponents()
             urlComponents.scheme = url.scheme
             urlComponents.host = url.host
             urlComponents.path = url.path
 
-            if let httpBody = httpBody, let dictionary = try? JSONSerialization.jsonObject(with: httpBody, options: []) as? [String: Any] {
+            if let httpBody = httpBody,
+               let dictionary = try? JSONSerialization.jsonObject(with: httpBody, options: []) as? [String: Any] {
                 urlComponents.queryItems = dictionary.map { key, value in
-                    print(dictionary)
-                    return URLQueryItem(name: key, value: "\(value)")
+                    URLQueryItem(name: key, value: "\(value)")
                 }
             }
-
             request.url = urlComponents.url
         } else {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = httpBody
         }
-
         return request
     }
 }
@@ -97,6 +78,8 @@ extension Route where ResultType: Decodable {
 
     @discardableResult
     func result(completion: @escaping (Result<ResultType, Swift.Error>) -> ()) -> URLSessionTask? {
+        let decoder = JSONDecoder()
+
         do {
             let task = session.dataTask(with: try makeRequest()) { data, response, error in
                 if let error = error {
@@ -109,7 +92,7 @@ extension Route where ResultType: Decodable {
                     return
                 }
                 do {
-                    completion(.success(try JSONDecoder().decode(ResultType.self, from: data)))
+                    completion(.success(try decoder.decode(ResultType.self, from: data)))
                 } catch {
                     completion(.failure(error))
                 }
@@ -123,6 +106,8 @@ extension Route where ResultType: Decodable {
     }
 }
 
+// MARK: - AnyEncodable
+
 private struct AnyEncodable: Encodable {
     let value: Encodable
 
@@ -130,11 +115,3 @@ private struct AnyEncodable: Encodable {
         try value.encode(to: encoder)
     }
 }
-
-// MARK: - JSONEncoder
-
-extension JSONEncoder {}
-
-// MARK: - JSONDecoder
-
-extension JSONDecoder {}

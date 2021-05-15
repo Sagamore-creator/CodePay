@@ -5,7 +5,7 @@ import UIKit
 
 class PhoneNumberTextField: TextField {
     
-    // MARK: - Initialize
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
