@@ -6,6 +6,10 @@ import SnapKit
 
 class ViewController: UIViewController {
 
+    deinit {
+        print("BASE VIEWCONTROLLER - DEINITED")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -26,7 +30,7 @@ extension ViewController {
 
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
 }

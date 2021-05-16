@@ -6,6 +6,10 @@ import SnapKit
 
 final class LoginViewController: ViewController {
 
+    deinit {
+        print("LOGIN SCENE - DEINITED")
+    }
+
     private let UIComponent = UIComponentBuilder.self
 
     // MARK: - UI components
@@ -42,13 +46,20 @@ final class LoginViewController: ViewController {
         )
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = color(.bluePay)
+        return indicator
+    }()
+
     private lazy var components: [UIView] = {
         [
             logo,
             phoneNumberTextField,
             passwordTextField,
             loginButton,
-            registerButton
+            registerButton,
+            activityIndicator
         ]
     }()
 
@@ -119,6 +130,13 @@ final class LoginViewController: ViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.centerX.equalTo(view)
         }
+
+        activityIndicator.snp.makeConstraints { make in
+            make.top.equalTo(registerButton.snp.bottom).offset(30)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+            make.centerX.equalTo(view)
+        }
     }
 }
 
@@ -127,12 +145,12 @@ final class LoginViewController: ViewController {
 private extension LoginViewController {
 
     func handleLogin(phoneNumber: String?, password: String?) {
+        activityIndicator.show()
         API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
             switch result {
             case .success(let users):
                 UserManager.user = users.first
                 self?.tryLogin(with: phoneNumber, and: password)
-                //UserManager.user = nil
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -142,10 +160,13 @@ private extension LoginViewController {
     func tryLogin(with phoneNumber: String?, and password: String?) {
         DispatchQueue.main.async { [weak self] in
             do {
+                self?.activityIndicator.hide()
+                
                 try UserManager.loginUser(
                     phoneNumber: phoneNumber,
                     password: password
                 )
+
                 self?.presentHomeScene()
             } catch {
                 if let error = error as? UserManager.ErrorMessage {

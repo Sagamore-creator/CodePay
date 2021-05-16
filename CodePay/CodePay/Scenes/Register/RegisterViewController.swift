@@ -5,9 +5,12 @@ import UIKit
 import SnapKit
 
 final class RegisterViewController: ViewController {
-    
     private let UIComponent = UIComponentBuilder.self
     private var selectedCurrency: String = ""
+
+    deinit {
+        print("REGISTER SCENE - DEINITED")
+    }
 
     // MARK: - UI components
 
@@ -43,13 +46,20 @@ final class RegisterViewController: ViewController {
         )
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = color(.bluePay)
+        return indicator
+    }()
+
     private lazy var components: [UIView] = {
         [
             phoneNumberTextField,
             passwordTextField,
             confirmPasswordTextField,
             currencySelectionView,
-            registerButton
+            registerButton,
+            activityIndicator
         ]
     }()
 
@@ -132,6 +142,13 @@ final class RegisterViewController: ViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.centerX.equalTo(view)
         }
+
+        activityIndicator.snp.makeConstraints { make in
+            make.top.equalTo(registerButton.snp.bottom).offset(30)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+            make.centerX.equalTo(view)
+        }
     }
 }
 
@@ -145,6 +162,7 @@ private extension RegisterViewController {
         confirmPassword: String?,
         currency: String?
     ) {
+        activityIndicator.show()
         API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
             switch result {
             case .success(let users):
@@ -171,12 +189,15 @@ private extension RegisterViewController {
     ) {
         DispatchQueue.main.async { [weak self] in
             do {
+                self?.activityIndicator.hide()
+
                 try UserManager.registerUserAndAccount(
                     phoneNumber: phoneNumber,
                     password: password,
                     confirmPassword: confirmPassword,
                     currency: currency
                 )
+
                 self?.presentHomeScene()
             } catch {
                 if let error = error as? UserManager.ErrorMessage {

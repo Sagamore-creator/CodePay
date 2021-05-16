@@ -6,7 +6,7 @@ import UIKit
 typealias ViewTap = () -> Void
 
 class SelectionView: UIView {
-    var selectedValue: String?
+    var selectedValue: String? = ""
     private var onTap: ViewTap?
 
     // MARK: - Initializers
@@ -25,7 +25,7 @@ class SelectionView: UIView {
 
     init(
         titleText: String?,
-        selectedValue: String?,
+        selectedValue: String? = nil,
         onTap: ViewTap?
     ) {
         super.init(frame: .zero)

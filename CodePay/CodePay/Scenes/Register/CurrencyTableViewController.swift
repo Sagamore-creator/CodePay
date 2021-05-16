@@ -18,6 +18,10 @@ final class CurrencyTableViewController: TableViewController {
     var onCurrencySelect: ((_ pass: String) -> Void)?
     private var currencyArray: [Currency] = []
 
+    deinit {
+        print("CURRENCY SELECTION SCENE - DEINITED")
+    }
+
     // MARK: - Initializers
 
     init(with currency: [Currency]) {
