@@ -6,7 +6,11 @@ import UIKit
 final class SelectionCell: TableViewCell {
 
     func configureCell(with text: String?) {
-        let cellLabel = Label(text: text, color: .grayDark)
+        let cellLabel = Label(
+            text: text,
+            color: .grayDark,
+            font: .title
+        )
 
         contentView.addSubview(cellLabel)
 

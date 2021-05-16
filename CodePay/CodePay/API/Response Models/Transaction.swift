@@ -4,6 +4,7 @@
 import Foundation
 
 typealias Transactions = [TransactionResponse]
+typealias Transaction = TransactionResponse
 
 struct TransactionResponse: Codable {
     let id: String

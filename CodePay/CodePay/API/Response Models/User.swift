@@ -4,6 +4,7 @@
 import Foundation
 
 typealias Users = [UserResponse]
+typealias User = UserResponse
 
 struct UserResponse: Codable {
     let id: String?

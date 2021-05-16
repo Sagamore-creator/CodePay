@@ -61,13 +61,14 @@ final class LoginViewController: ViewController {
     // MARK: - Actions
 
     private func onLoginButtonTap() {
-        let homeViewController = HomeViewController()
-        present(viewController: homeViewController, style: .modalFull)
+        handleLogin(
+            phoneNumber: phoneNumberTextField.text,
+            password: passwordTextField.text
+        )
     }
 
     private func onRegisterButtonTap() {
-        let registerViewController = RegisterViewController()
-        present(viewController: registerViewController, style: .push)
+        presentRegisterScene()
     }
 
     // MARK: - Setup View
@@ -82,7 +83,7 @@ final class LoginViewController: ViewController {
 
         logo.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
-            make.height.equalTo(IconSize.xxxLarge.size)
+            make.height.equalTo(150)
             make.width.equalTo(logo.snp.height)
             make.centerX.equalTo(view)
         }
@@ -117,6 +118,40 @@ final class LoginViewController: ViewController {
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.centerX.equalTo(view)
+        }
+    }
+}
+
+// MARK: - Handle Login
+
+private extension LoginViewController {
+
+    func handleLogin(phoneNumber: String?, password: String?) {
+        API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
+            switch result {
+            case .success(let users):
+                UserManager.user = users.first
+                self?.tryLogin(with: phoneNumber, and: password)
+                //UserManager.user = nil
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func tryLogin(with phoneNumber: String?, and password: String?) {
+        DispatchQueue.main.async { [weak self] in
+            do {
+                try UserManager.loginUser(
+                    phoneNumber: phoneNumber,
+                    password: password
+                )
+                self?.presentHomeScene()
+            } catch {
+                if let error = error as? UserManager.ErrorMessage {
+                    self?.showAlert(message: error.description)
+                }
+            }
         }
     }
 }

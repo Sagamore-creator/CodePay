@@ -68,6 +68,7 @@ class Route<ResultType> {
             request.url = urlComponents.url
         } else {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
             request.httpBody = httpBody
         }
         return request

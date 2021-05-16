@@ -16,13 +16,13 @@ class Label: UILabel {
     }
 
     init(
-        text: String?,
+        text: String? = nil,
         color: ColorPalette,
-        fontSize: CGFloat = 15
+        font: Font
     ) {
         super.init(frame: .zero)
         self.text = text
         textColor = color.colorValue()
-        font = UIFont(name: "HelveticaNeue", size: fontSize)
+        self.font = font.value()
     }
 }

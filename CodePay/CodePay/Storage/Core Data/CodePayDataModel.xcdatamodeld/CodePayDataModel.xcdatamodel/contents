@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="AccountModel" representedClassName=".AccountModel" syncable="YES">
+        <attribute name="balance" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="currency" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="phoneNumber" attributeType="String"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionModel" inverseName="account" inverseEntity="TransactionModel"/>
+    </entity>
+    <entity name="TransactionModel" representedClassName="TransactionModel" syncable="YES">
+        <attribute name="amount" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="createdOn" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currency" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="receiverId" attributeType="String"/>
+        <attribute name="reference" attributeType="String"/>
+        <attribute name="senderId" attributeType="String"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountModel" inverseName="transactions" inverseEntity="AccountModel"/>
+    </entity>
+    <elements>
+        <element name="AccountModel" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="TransactionModel" positionX="-54" positionY="18" width="128" height="149"/>
+    </elements>
 </model>

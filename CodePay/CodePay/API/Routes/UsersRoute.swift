@@ -17,6 +17,18 @@ extension API {
             .init(endpoint: endpoint)
         }
 
+        ///        GET - gets all users with specified phoneNumber
+        static func get(with phoneNumber: String?) -> Route<Users> {
+            let queryParams = PhoneNumberQuery(phoneNumber: phoneNumber)
+
+            let route: Route<Users> = .init(
+                endpoint: "/user",
+                params: queryParams
+            )
+
+            return route
+        }
+
         ///        POST - saves user
         static func post(user params: Params) -> Route<Users> {
             .init(

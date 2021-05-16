@@ -5,12 +5,9 @@ import UIKit
 import SnapKit
 
 final class RegisterViewController: ViewController {
+    
     private let UIComponent = UIComponentBuilder.self
     private var selectedCurrency: String = ""
-
-    deinit {
-        print("RegisterViewController DEINITED")
-    }
 
     // MARK: - UI components
 
@@ -65,14 +62,18 @@ final class RegisterViewController: ViewController {
     // MARK: - Actions
 
     private func onRegisterButtonTap() {
-        let homeViewController = HomeViewController()
-        present(viewController: homeViewController, style: .modalFull)
+        handleRegistration(
+            phoneNumber: phoneNumberTextField.text,
+            password: passwordTextField.text,
+            confirmPassword: confirmPasswordTextField.text,
+            currency: currencySelectionView.selectedValue
+        )
     }
 
     private func onCurrencySelectionTap() {
         let currencySelectionViewController = CurrencyTableViewController(with: currency)
 
-        currencySelectionViewController.onDismiss = { [weak self] currency in
+        currencySelectionViewController.onCurrencySelect = { [weak self] currency in
             guard let self = self else { return }
             self.currencySelectionView.setSelectedValue(currency)
             self.selectedCurrency = currency
@@ -130,6 +131,58 @@ final class RegisterViewController: ViewController {
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.centerX.equalTo(view)
+        }
+    }
+}
+
+// MARK: - Handle Registration
+
+private extension RegisterViewController {
+
+    func handleRegistration(
+        phoneNumber: String?,
+        password: String?,
+        confirmPassword: String?,
+        currency: String?
+    ) {
+        API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
+            switch result {
+            case .success(let users):
+                UserManager.user = users.first
+
+                self?.tryRegister(
+                    phoneNumber: phoneNumber,
+                    password: password,
+                    confirmPassword: confirmPassword,
+                    currency: currency
+                )
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func tryRegister(
+        phoneNumber: String?,
+        password: String?,
+        confirmPassword: String?,
+        currency: String?
+    ) {
+        DispatchQueue.main.async { [weak self] in
+            do {
+                try UserManager.registerUserAndAccount(
+                    phoneNumber: phoneNumber,
+                    password: password,
+                    confirmPassword: confirmPassword,
+                    currency: currency
+                )
+                self?.presentHomeScene()
+            } catch {
+                if let error = error as? UserManager.ErrorMessage {
+                    self?.showAlert(message: error.description)
+                }
+            }
         }
     }
 }

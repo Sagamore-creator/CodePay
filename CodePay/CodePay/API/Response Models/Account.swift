@@ -4,10 +4,11 @@
 import Foundation
 
 typealias Accounts = [AccountResponse]
+typealias Account = AccountResponse
 
 struct AccountResponse: Codable {
-    let id: String
+    let id: String?
     let phoneNumber: String
     let currency: String
-    let balance: Double
+    let balance: Double?
 }

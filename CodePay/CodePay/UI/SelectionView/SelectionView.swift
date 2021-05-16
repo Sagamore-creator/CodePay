@@ -9,10 +9,6 @@ class SelectionView: UIView {
     var selectedValue: String?
     private var onTap: ViewTap?
 
-    private var respondsToTouch: Bool {
-        return onTap != nil
-    }
-
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -69,17 +65,11 @@ class SelectionView: UIView {
     // MARK: - View Components
 
     private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        label.textColor = color(.grayDark)
-        return label
+        Label(color: .grayDark, font: .title)
     }()
 
     private let selectedValueLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 15)
-        label.textColor = color(.grayDark)
-        return label
+        Label(color: .grayDark, font: .body)
     }()
 
     private let arrowIconView: UIImageView = {

@@ -3,7 +3,7 @@
 
 import UIKit
 
-public enum ColorPalette: Int {
+enum ColorPalette: Int {
     case greenBrand
     case grayDark
     case brightGray
@@ -38,6 +38,6 @@ public enum ColorPalette: Int {
     }
 }
 
-public func color(_ colorPalette: ColorPalette, alpha: CGFloat = 1.0) -> UIColor? {
+func color(_ colorPalette: ColorPalette, alpha: CGFloat = 1.0) -> UIColor? {
     colorPalette.colorValue(alpha: alpha)
 }

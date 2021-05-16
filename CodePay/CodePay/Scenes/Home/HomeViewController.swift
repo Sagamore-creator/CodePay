@@ -5,6 +5,7 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: ViewController {
+    private var loggedInUser = UserDefaultsManager().getLoggedInUser()
 
     deinit {
         print("HomeViewController DEINITED")
@@ -14,5 +15,7 @@ final class HomeViewController: ViewController {
         super.viewDidLoad()
         title = "HOME SCENE"
         navigationController?.navigationBar.isHidden = false
+
+        print(loggedInUser)
     }
 }

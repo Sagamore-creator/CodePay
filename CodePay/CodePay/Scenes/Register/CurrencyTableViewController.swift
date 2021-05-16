@@ -15,14 +15,10 @@ final class Currency {
 }
 
 final class CurrencyTableViewController: TableViewController {
-    var onDismiss: ((_ pass: String) -> Void)?
+    var onCurrencySelect: ((_ pass: String) -> Void)?
     private var currencyArray: [Currency] = []
 
     // MARK: - Initializers
-
-    deinit {
-        print("SelectionTableViewController DEINITED")
-    }
 
     init(with currency: [Currency]) {
         super.init(nibName: nil, bundle: nil)
@@ -66,16 +62,13 @@ final class CurrencyTableViewController: TableViewController {
     // MARK: - UITableViewDelegate methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currencyArray[indexPath.row].isSelected.toggle()
-        tableView.deselectRow(at: indexPath, animated: true)
-
         let title = currencyArray[indexPath.row].title
-
+        currencyArray[indexPath.row].isSelected.toggle()
+        onCurrencySelect?(title)
         selectRow(with: title)
         deselectRows(without: title)
+        tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
-
-        onDismiss?(title)
         dismiss(animated: true, completion: nil)
     }
 }
