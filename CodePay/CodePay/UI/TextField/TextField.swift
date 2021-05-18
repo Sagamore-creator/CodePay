@@ -56,7 +56,7 @@ class TextField: UITextField {
     }()
 
     @objc private func clear() {
-            self.text = ""
+        self.text = ""
     }
 }
 

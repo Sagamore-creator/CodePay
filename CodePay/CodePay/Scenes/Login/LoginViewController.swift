@@ -18,7 +18,7 @@ final class LoginViewController: ViewController {
         UIImageView(image: Icon.logo.image)
     }()
 
-    private lazy var phoneNumberTextField: UITextField = {
+    private lazy var phoneNumberTextField: PhoneNumberTextField = {
         UIComponent.phoneNumberTextField()
     }()
 
@@ -73,7 +73,7 @@ final class LoginViewController: ViewController {
 
     private func onLoginButtonTap() {
         handleLogin(
-            phoneNumber: phoneNumberTextField.text,
+            phoneNumber: phoneNumberTextField.phoneNumber,
             password: passwordTextField.text
         )
     }

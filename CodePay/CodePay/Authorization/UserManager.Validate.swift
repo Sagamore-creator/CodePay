@@ -61,9 +61,9 @@ extension UserManager {
         // MARK: - Private methods
 
         private static func checkPhoneNumber(_ number: String) -> Bool {
-            let nameRegex = "^\\w{9,11}$" // min 9 max 11 characters
+            let numberRegex = "^\\w{11,}$"
             let trimmedString = number.trimmingCharacters(in: .whitespaces)
-            let validatePhone = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+            let validatePhone = NSPredicate(format: "SELF MATCHES %@", numberRegex)
             let isValidPhone = validatePhone.evaluate(with: trimmedString)
             return isValidPhone
         }

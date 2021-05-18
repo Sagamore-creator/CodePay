@@ -13,11 +13,11 @@ final class UIComponentBuilder {
 
     // MARK: Custom TextFields
 
-    static func phoneNumberTextField() -> TextField {
+    static func phoneNumberTextField() -> PhoneNumberTextField {
         PhoneNumberTextField(placeholder: "Phone Number")
     }
 
-    static func passwordTextField(placeholder: String? = "Password") -> TextField {
+    static func passwordTextField(placeholder: String? = "Password") -> PasswordTextField {
         PasswordTextField(placeholder: placeholder)
     }
 

@@ -14,7 +14,7 @@ final class RegisterViewController: ViewController {
 
     // MARK: - UI components
 
-    private lazy var phoneNumberTextField: UITextField = {
+    private lazy var phoneNumberTextField: PhoneNumberTextField = {
         UIComponent.phoneNumberTextField()
     }()
 
@@ -73,7 +73,7 @@ final class RegisterViewController: ViewController {
 
     private func onRegisterButtonTap() {
         handleRegistration(
-            phoneNumber: phoneNumberTextField.text,
+            phoneNumber: phoneNumberTextField.phoneNumber,
             password: passwordTextField.text,
             confirmPassword: confirmPasswordTextField.text,
             currency: currencySelectionView.selectedValue

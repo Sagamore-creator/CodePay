@@ -4,6 +4,7 @@
 import UIKit
 
 class PhoneNumberTextField: TextField {
+    var phoneNumber: String? = ""
     
     // MARK: - Initializers
 
@@ -42,7 +43,33 @@ extension PhoneNumberTextField {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
-        return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+        guard let text = textField.text else { return false }
+        let newText = (text as NSString).replacingCharacters(in: range, with: string)
+        textField.text = format(with: "+XXX XXX XX XXX", phoneNumber: newText)
+        phoneNumber = format(with: "XXXXXXXXXXX", phoneNumber: newText)
+        return false
+    }
+
+    // MARK: Format Phone Number
+
+    private func format(with mask: String, phoneNumber: String) -> String {
+        let numbers = phoneNumber.replacingOccurrences(
+            of: "[^0-9]",
+            with: "",
+            options: .regularExpression
+        )
+
+        var result = ""
+        var index = numbers.startIndex
+
+        for character in mask where index < numbers.endIndex {
+            if character == "X" {
+                result.append(numbers[index])
+                index = numbers.index(after: index)
+            } else {
+                result.append(character)
+            }
+        }
+        return result
     }
 }

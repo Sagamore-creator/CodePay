@@ -22,7 +22,7 @@ extension UserManager {
             case .userAlreadyExists:
                 return "This user is already taken."
             case .wrongPhoneNumberSyntax:
-                return "Number length must be 9-11 characters."
+                return "Number format should be +370 000 00 000."
             case .wrongPassword:
                 return "Incorrect password!"
             case .wrongPasswordSyntax:
