@@ -10,7 +10,7 @@ let ButtonRoundedRadius = CornerRadiusSize.default.valueFrom(size: .zero)
 
 // MARK: - Currency TEMPORARY!
 
-var currency: [Currency] = [
+let currency: [Currency] = [
     Currency(title: "USD"),
     Currency(title: "EUR"),
     Currency(title: "LT"),

@@ -82,7 +82,7 @@ final class RegisterViewController: ViewController {
 
     private func onCurrencySelectionTap() {
         let currencySelectionViewController = CurrencyTableViewController(with: currency)
-
+        //currencySelectionViewController.currencySelectionDelegate = self
         currencySelectionViewController.onCurrencySelect = { [weak self] currency in
             guard let self = self else { return }
             self.currencySelectionView.setSelectedValue(currency)
@@ -163,6 +163,7 @@ private extension RegisterViewController {
         currency: String?
     ) {
         activityIndicator.show()
+
         API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
             switch result {
             case .success(let users):
@@ -207,3 +208,12 @@ private extension RegisterViewController {
         }
     }
 }
+
+// MARK: - CurrencySelectionDelegate methods
+//
+//extension RegisterViewController: CurrencySelectionDelegate {
+//    func didTapCurrency(_ currency: String) {
+//        currencySelectionView.setSelectedValue(currency)
+//        selectedCurrency = currency
+//    }
+//}

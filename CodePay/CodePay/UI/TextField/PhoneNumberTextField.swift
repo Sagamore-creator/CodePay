@@ -25,7 +25,7 @@ class PhoneNumberTextField: TextField {
     }
 
     private func initialize() {
-        keyboardType = .numberPad
+        keyboardType = .numbersAndPunctuation
     }
 
     override func updateAppearance() {

@@ -14,7 +14,12 @@ final class Currency {
     }
 }
 
+//protocol CurrencySelectionDelegate: AnyObject {
+//    func didTapCurrency(_ currency: String)
+//}
+
 final class CurrencyTableViewController: TableViewController {
+    //weak var currencySelectionDelegate: CurrencySelectionDelegate?
     var onCurrencySelect: ((_ pass: String) -> Void)?
     private var currencyArray: [Currency] = []
 
@@ -68,6 +73,7 @@ final class CurrencyTableViewController: TableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = currencyArray[indexPath.row].title
         currencyArray[indexPath.row].isSelected.toggle()
+        //currencySelectionDelegate?.didTapCurrency(title)
         onCurrencySelect?(title)
         selectRow(with: title)
         deselectRows(without: title)
