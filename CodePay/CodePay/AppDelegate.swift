@@ -10,6 +10,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: color(.white)!]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: color(.white)!]
+            navBarAppearance.backgroundColor = color(.grayDark)
+            UINavigationBar.appearance().standardAppearance = navBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        } else {
+            UINavigationBar.appearance().barTintColor = color(.grayDark)
+            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: color(.white)!]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: color(.white)!]
+        }
+
         return true
     }
 

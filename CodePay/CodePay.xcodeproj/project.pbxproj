@@ -26,7 +26,7 @@
 		0A82C692265004A600508C51 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C691265004A600508C51 /* SearchQuery.swift */; };
 		0A82C694265004D000508C51 /* PhoneNumberQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C693265004D000508C51 /* PhoneNumberQuery.swift */; };
 		0A82C6972650097600508C51 /* UserManager.Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C6962650097600508C51 /* UserManager.Validate.swift */; };
-		0A82C6992650147E00508C51 /* UserManager.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C6982650147E00508C51 /* UserManager.Errors.swift */; };
+		0A82C6992650147E00508C51 /* UserManager.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C6982650147E00508C51 /* UserManager.Error.swift */; };
 		0A82C69E26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69A26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift */; };
 		0A82C69F26514BBE00508C51 /* AccountModel+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69B26514BBD00508C51 /* AccountModel+CoreDataClass copy.swift */; };
 		0A82C6A026514BBE00508C51 /* TransactionModel+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69C26514BBD00508C51 /* TransactionModel+CoreDataProperties copy.swift */; };
@@ -85,7 +85,7 @@
 		0A82C691265004A600508C51 /* SearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
 		0A82C693265004D000508C51 /* PhoneNumberQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberQuery.swift; sourceTree = "<group>"; };
 		0A82C6962650097600508C51 /* UserManager.Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.Validate.swift; sourceTree = "<group>"; };
-		0A82C6982650147E00508C51 /* UserManager.Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.Errors.swift; sourceTree = "<group>"; };
+		0A82C6982650147E00508C51 /* UserManager.Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.Error.swift; sourceTree = "<group>"; };
 		0A82C69A26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountModel+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		0A82C69B26514BBD00508C51 /* AccountModel+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountModel+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		0A82C69C26514BBD00508C51 /* TransactionModel+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionModel+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
@@ -235,6 +235,14 @@
 			path = "Transaction Filter";
 			sourceTree = "<group>";
 		};
+		0A4A5FB126565ECA00F242D3 /* User Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				0AACFF00264C21040095D031 /* UserDefaultsManager.swift */,
+			);
+			path = "User Defaults";
+			sourceTree = "<group>";
+		};
 		0A751A4C26499AA400D6FB0A /* SelectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,8 +340,8 @@
 		0A76E40B2640524C000F58B2 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				0A4A5FB126565ECA00F242D3 /* User Defaults */,
 				0A2190982641CFF100F53B02 /* Core Data */,
-				0AACFF00264C21040095D031 /* UserDefaultsManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -367,7 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				0A82C68A264FDADA00508C51 /* UserManager.swift */,
-				0A82C6982650147E00508C51 /* UserManager.Errors.swift */,
+				0A82C6982650147E00508C51 /* UserManager.Error.swift */,
 				0A82C6962650097600508C51 /* UserManager.Validate.swift */,
 			);
 			path = Authorization;
@@ -582,7 +590,7 @@
 				0A751A292648623C00D6FB0A /* HomeViewController.swift in Sources */,
 				0AACFF01264C21040095D031 /* UserDefaultsManager.swift in Sources */,
 				0AC96FCD2644005B00A691CB /* TextField.swift in Sources */,
-				0A82C6992650147E00508C51 /* UserManager.Errors.swift in Sources */,
+				0A82C6992650147E00508C51 /* UserManager.Error.swift in Sources */,
 				0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */,
 				0A82C69E26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift in Sources */,
 				0AD94DD9264D50C800A42756 /* UsersRoute.swift in Sources */,

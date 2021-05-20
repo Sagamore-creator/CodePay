@@ -65,6 +65,11 @@ final class RegisterViewController: ViewController {
 
     // MARK: - Lifecycle
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -82,7 +87,7 @@ final class RegisterViewController: ViewController {
 
     private func onCurrencySelectionTap() {
         let currencySelectionViewController = CurrencyTableViewController(with: currency)
-        //currencySelectionViewController.currencySelectionDelegate = self
+
         currencySelectionViewController.onCurrencySelect = { [weak self] currency in
             guard let self = self else { return }
             self.currencySelectionView.setSelectedValue(currency)
@@ -96,15 +101,13 @@ final class RegisterViewController: ViewController {
 
     override func setupView(with views: [UIView]) {
         super.setupView(with: components)
-        title = "REGISTER SCENE"
-        navigationController?.navigationBar.isHidden = false
     }
 
     override func setupConstraints() {
         super.setupConstraints()
 
         phoneNumberTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -149,6 +152,12 @@ final class RegisterViewController: ViewController {
             make.width.equalTo(50)
             make.centerX.equalTo(view)
         }
+    }
+
+    private func setupNavigationBar() {
+        title = "Register"
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -208,12 +217,3 @@ private extension RegisterViewController {
         }
     }
 }
-
-// MARK: - CurrencySelectionDelegate methods
-//
-//extension RegisterViewController: CurrencySelectionDelegate {
-//    func didTapCurrency(_ currency: String) {
-//        currencySelectionView.setSelectedValue(currency)
-//        selectedCurrency = currency
-//    }
-//}

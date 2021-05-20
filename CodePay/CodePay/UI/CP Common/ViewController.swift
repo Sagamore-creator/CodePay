@@ -10,6 +10,10 @@ class ViewController: UIViewController {
         print("BASE VIEWCONTROLLER - DEINITED")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -100,6 +104,7 @@ extension ViewController {
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.modalPresentationStyle = .fullScreen
             navigationController.modalTransitionStyle = .crossDissolve
+            navigationController.modalPresentationCapturesStatusBarAppearance = true
             present(navigationController, animated: animated, completion: completion)
         case .modal:
             let navigationController = UINavigationController(rootViewController: viewController)

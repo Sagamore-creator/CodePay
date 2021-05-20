@@ -25,7 +25,6 @@ final class HomeViewController: ViewController {
 
     override func setupView(with views: [UIView]) {
         super.setupView(with: components)
-        navigationController?.navigationBar.isHidden = true
         title = loggedInUser?.phoneNumber
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true

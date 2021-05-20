@@ -14,6 +14,19 @@ final class LoginViewController: ViewController {
 
     // MARK: - UI components
 
+    private lazy var backItem: UIBarButtonItem = {
+        let backItem = UIBarButtonItem(
+            title: "Login",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+
+        backItem.tintColor = color(.bluePay)
+
+        return backItem
+    }()
+
     private lazy var logo: UIImageView = {
         UIImageView(image: Icon.logo.image)
     }()
@@ -22,7 +35,7 @@ final class LoginViewController: ViewController {
         UIComponent.phoneNumberTextField()
     }()
 
-    private lazy var passwordTextField: UITextField = {
+    private lazy var passwordTextField: PasswordTextField = {
         UIComponent.passwordTextField()
     }()
 
@@ -65,6 +78,11 @@ final class LoginViewController: ViewController {
 
     // MARK: - Lifecycle
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -86,7 +104,6 @@ final class LoginViewController: ViewController {
 
     override func setupView(with views: [UIView]) {
         super.setupView(with: components)
-        navigationController?.navigationBar.isHidden = true
     }
 
     override func setupConstraints() {
@@ -137,6 +154,12 @@ final class LoginViewController: ViewController {
             make.width.equalTo(50)
             make.centerX.equalTo(view)
         }
+    }
+
+    private func setupNavigationBar() {
+        navigationItem.backBarButtonItem = backItem
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 
