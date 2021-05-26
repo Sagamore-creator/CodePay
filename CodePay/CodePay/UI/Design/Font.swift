@@ -11,22 +11,11 @@ enum Font: Int {
     func value() -> UIFont? {
         switch self {
         case .title:
-            return UIFont(name: "HelveticaNeue-Bold", size: size)
+            return UIFont(name: "HelveticaNeue-Bold", size: 20)
         case .body:
-            return UIFont(name: "HelveticaNeue", size: size)
+            return UIFont(name: "HelveticaNeue", size: 15)
         case .subtitle:
-            return UIFont(name: "HelveticaNeue", size: size)
-        }
-    }
-
-    private var size: CGFloat {
-        switch self {
-        case .title:
-            return 20
-        case .body:
-            return 15
-        case .subtitle:
-            return 10
+            return UIFont(name: "HelveticaNeue", size: 10)
         }
     }
 }

@@ -17,10 +17,8 @@ class SelectionView: UIView {
         setupConstraints()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupView()
-        setupConstraints()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     init(
