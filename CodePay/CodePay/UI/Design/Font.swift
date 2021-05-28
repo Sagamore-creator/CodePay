@@ -8,7 +8,7 @@ enum Font: Int {
     case body
     case subtitle
 
-    func value() -> UIFont? {
+    var value: UIFont? {
         switch self {
         case .title:
             return UIFont(name: "HelveticaNeue-Bold", size: 20)
@@ -21,5 +21,5 @@ enum Font: Int {
 }
 
 func font(_ font: Font) -> UIFont? {
-    font.value()
+    font.value
 }

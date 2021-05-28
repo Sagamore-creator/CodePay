@@ -7,14 +7,6 @@ class Label: UILabel {
 
     // MARK: - Initializers
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     init(
         text: String? = nil,
         color: ColorPalette,
@@ -23,6 +15,10 @@ class Label: UILabel {
         super.init(frame: .zero)
         self.text = text
         textColor = color.colorValue()
-        self.font = font.value()
+        self.font = font.value
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

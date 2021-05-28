@@ -12,6 +12,14 @@ extension API {
             let user: UserResponse
         }
 
+        struct PhoneNumberQuery: Encodable {
+            let phoneNumber: String?
+        }
+
+        struct SearchQuery: Encodable {
+            let search: String
+        }
+
         ///        GET - returns all User instances
         static func get() -> Route<Users> {
             .init(endpoint: endpoint)
@@ -19,14 +27,10 @@ extension API {
 
         ///        GET - gets all users with specified phoneNumber
         static func get(with phoneNumber: String?) -> Route<Users> {
-            let queryParams = PhoneNumberQuery(phoneNumber: phoneNumber)
-
-            let route: Route<Users> = .init(
-                endpoint: "/user",
-                params: queryParams
+            .init(
+                endpoint: endpoint, //"/user",
+                params: PhoneNumberQuery(phoneNumber: phoneNumber)
             )
-
-            return route
         }
 
         ///        POST - saves user

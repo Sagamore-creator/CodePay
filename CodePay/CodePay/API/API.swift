@@ -12,10 +12,10 @@ enum API {
 extension API {
 
     static func registerUser(_ user: User) {
-        self.UsersRoute.post(user: UsersRoute.Params(user: user)).result { _ in }
+        UsersRoute.post(user: UsersRoute.Params(user: user)).result { _ in }
     }
 
     static func registerAccount(_ account: Account) {
-        self.AccountsRoute.post(account: AccountsRoute.Params(account: account)).result { _ in }
+        AccountsRoute.post(account: AccountsRoute.Params(account: account)).result { _ in }
     }
 }

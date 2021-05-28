@@ -11,6 +11,7 @@ enum Icon: Int {
     case passwordShow
     case passwordHide
     case underConstruction
+    case settings
 
     var image: UIImage? {
         switch self {
@@ -28,6 +29,8 @@ enum Icon: Int {
             return UIImage(systemName: "eye.slash.fill")
         case .underConstruction:
             return UIImage(named: "Construction")
+        case .settings:
+            return UIImage(named: "Settings")
         }
     }
 }

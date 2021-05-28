@@ -210,7 +210,7 @@ private extension RegisterViewController {
 
                 self?.presentHomeScene()
             } catch {
-                if let error = error as? UserManager.ErrorMessage {
+                if let error = error as? UserManager.Error {
                     self?.showAlert(message: error.description)
                 }
             }

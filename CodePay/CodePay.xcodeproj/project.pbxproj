@@ -23,10 +23,6 @@
 		0A76E40126404BC8000F58B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E3FF26404BC8000F58B2 /* LaunchScreen.storyboard */; };
 		0A82C685264F13D500508C51 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C684264F13D500508C51 /* API.swift */; };
 		0A82C68B264FDADA00508C51 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C68A264FDADA00508C51 /* UserManager.swift */; };
-		0A82C692265004A600508C51 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C691265004A600508C51 /* SearchQuery.swift */; };
-		0A82C694265004D000508C51 /* PhoneNumberQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C693265004D000508C51 /* PhoneNumberQuery.swift */; };
-		0A82C6972650097600508C51 /* UserManager.Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C6962650097600508C51 /* UserManager.Validate.swift */; };
-		0A82C6992650147E00508C51 /* UserManager.Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C6982650147E00508C51 /* UserManager.Error.swift */; };
 		0A82C69E26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69A26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift */; };
 		0A82C69F26514BBE00508C51 /* AccountModel+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69B26514BBD00508C51 /* AccountModel+CoreDataClass copy.swift */; };
 		0A82C6A026514BBE00508C51 /* TransactionModel+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82C69C26514BBD00508C51 /* TransactionModel+CoreDataProperties copy.swift */; };
@@ -82,10 +78,6 @@
 		0A76E40226404BC8000F58B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A82C684264F13D500508C51 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0A82C68A264FDADA00508C51 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		0A82C691265004A600508C51 /* SearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
-		0A82C693265004D000508C51 /* PhoneNumberQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberQuery.swift; sourceTree = "<group>"; };
-		0A82C6962650097600508C51 /* UserManager.Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.Validate.swift; sourceTree = "<group>"; };
-		0A82C6982650147E00508C51 /* UserManager.Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.Error.swift; sourceTree = "<group>"; };
 		0A82C69A26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountModel+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		0A82C69B26514BBD00508C51 /* AccountModel+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountModel+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		0A82C69C26514BBD00508C51 /* TransactionModel+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionModel+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
@@ -332,7 +324,6 @@
 				0AD94DD1264D4B6800A42756 /* Route.swift */,
 				0A2190892641B4CF00F53B02 /* Response Models */,
 				0AD94DD5264D505800A42756 /* Routes */,
-				0A82C6902650047D00508C51 /* Queries */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -362,21 +353,10 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		0A82C6902650047D00508C51 /* Queries */ = {
-			isa = PBXGroup;
-			children = (
-				0A82C691265004A600508C51 /* SearchQuery.swift */,
-				0A82C693265004D000508C51 /* PhoneNumberQuery.swift */,
-			);
-			path = Queries;
-			sourceTree = "<group>";
-		};
 		0A82C6952650094C00508C51 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
 				0A82C68A264FDADA00508C51 /* UserManager.swift */,
-				0A82C6982650147E00508C51 /* UserManager.Error.swift */,
-				0A82C6962650097600508C51 /* UserManager.Validate.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -391,12 +371,12 @@
 				0AC96F94264310B600A691CB /* Icon */,
 				0A751A4F2649A15200D6FB0A /* Label */,
 				0A751A4C26499AA400D6FB0A /* SelectionView */,
-				0AC96F832642FA1C00A691CB /* CP Common */,
+				0AC96F832642FA1C00A691CB /* Common */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		0AC96F832642FA1C00A691CB /* CP Common */ = {
+		0AC96F832642FA1C00A691CB /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				0AC96F9F26431FA900A691CB /* ViewController.swift */,
@@ -405,7 +385,7 @@
 				0AC96FA1264320E100A691CB /* TableViewCell.swift */,
 				0AC96FA32643213F00A691CB /* ReusableView.swift */,
 			);
-			path = "CP Common";
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0AC96F862642FBF400A691CB /* Button */ = {
@@ -590,7 +570,6 @@
 				0A751A292648623C00D6FB0A /* HomeViewController.swift in Sources */,
 				0AACFF01264C21040095D031 /* UserDefaultsManager.swift in Sources */,
 				0AC96FCD2644005B00A691CB /* TextField.swift in Sources */,
-				0A82C6992650147E00508C51 /* UserManager.Error.swift in Sources */,
 				0AC96F7A2642F6FA00A691CB /* ColorPalette.swift in Sources */,
 				0A82C69E26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift in Sources */,
 				0AD94DD9264D50C800A42756 /* UsersRoute.swift in Sources */,
@@ -606,8 +585,6 @@
 				0A751A252648540500D6FB0A /* PasswordTextField.swift in Sources */,
 				0AD94DDB264D50DE00A42756 /* AccountsRoute.swift in Sources */,
 				0A21908D2641B5BD00F53B02 /* Account.swift in Sources */,
-				0A82C694265004D000508C51 /* PhoneNumberQuery.swift in Sources */,
-				0A82C692265004A600508C51 /* SearchQuery.swift in Sources */,
 				0A751A512649A16800D6FB0A /* Label.swift in Sources */,
 				0A21908F2641B66200F53B02 /* Transaction.swift in Sources */,
 				0AC96F982643113F00A691CB /* Icon.swift in Sources */,
@@ -624,7 +601,6 @@
 				0A82C685264F13D500508C51 /* API.swift in Sources */,
 				0AD94DCD264D404100A42756 /* CodePayDataModel.xcdatamodeld in Sources */,
 				0A82C68B264FDADA00508C51 /* UserManager.swift in Sources */,
-				0A82C6972650097600508C51 /* UserManager.Validate.swift in Sources */,
 				0AC96FA2264320E100A691CB /* TableViewCell.swift in Sources */,
 				0A76E3F526404BC6000F58B2 /* AppDelegate.swift in Sources */,
 				0A751A272648554A00D6FB0A /* PhoneNumberTextField.swift in Sources */,

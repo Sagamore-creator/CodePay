@@ -7,11 +7,6 @@ class TextField: UITextField {
 
     // MARK: - Initializers
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -23,7 +18,7 @@ class TextField: UITextField {
         self.placeholder = placeholder
     }
 
-    private func initialize() {
+    func initialize() {
         delegate = self
         autocorrectionType = .no
         clearButtonMode = .never
@@ -41,7 +36,7 @@ class TextField: UITextField {
         layer.borderColor = color(.grayDark)?.cgColor
         textAlignment = .center
         textColor = color(.grayDark)
-        font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        font = Font.title.value
     }
 
     // MARK: - Clear Button
@@ -55,7 +50,7 @@ class TextField: UITextField {
     }()
 
     @objc private func clear() {
-        self.text = ""
+        text = ""
     }
 }
 

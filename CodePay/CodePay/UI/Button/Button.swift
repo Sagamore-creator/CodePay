@@ -3,8 +3,6 @@
 
 import UIKit
 
-typealias ButtonTap = () -> Void
-
 enum ButtonStyle: Int {
     case `default`
     case filled
@@ -12,17 +10,9 @@ enum ButtonStyle: Int {
 }
 
 class Button: UIButton {
+    typealias ButtonTap = () -> Void
 
-    // MARK: - Initialize
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    // MARK: - Initializers
 
     init(
         title: String?,
@@ -36,6 +26,10 @@ class Button: UIButton {
         performAction(onTap)
     }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func initialize() {
         showsTouchWhenHighlighted = false
         layer.masksToBounds = true
@@ -46,6 +40,21 @@ class Button: UIButton {
     }
 
     // MARK: - Appearance
+
+    func setupButtonAppearance(
+        titleColor: ColorPalette,
+        backgroundColor: ColorPalette,
+        border: BorderSize,
+        borderColor: ColorPalette,
+        cornerRadius: CornerRadiusSize
+    ) {
+        setTitleColor(color(titleColor), for: .normal)
+        titleLabel?.font = Font.title.value
+        self.backgroundColor = color(backgroundColor)
+        layer.borderColor = color(borderColor)?.cgColor
+        layer.borderWidth = border.value
+        layer.cornerRadius = cornerRadius.value
+    }
 
     private func updateAppearance(title: String?, style: ButtonStyle?) {
         switch style {
@@ -91,21 +100,6 @@ class Button: UIButton {
         )
     }
 
-    func setupButtonAppearance(
-        titleColor: ColorPalette,
-        backgroundColor: ColorPalette,
-        border: BorderSize,
-        borderColor: ColorPalette,
-        cornerRadius: CornerRadiusSize
-    ) {
-        setTitleColor(color(titleColor), for: .normal)
-        titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-        self.backgroundColor = color(backgroundColor)
-        layer.borderColor = color(borderColor)?.cgColor
-        layer.borderWidth = border.value
-        layer.cornerRadius = cornerRadius.value
-    }
-
     // MARK: - Actions
 
     private func performAction(_ onTap: ButtonTap?) {
@@ -141,7 +135,7 @@ extension Button {
 
 extension UIControl {
 
-    func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping()->()) {
+    func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping () -> ()) {
         addAction(UIAction { (action: UIAction) in closure() }, for: controlEvents)
     }
 }

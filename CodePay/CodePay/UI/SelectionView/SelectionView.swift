@@ -11,12 +11,6 @@ class SelectionView: UIView {
 
     // MARK: - Initializers
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-        setupConstraints()
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,8 +37,8 @@ class SelectionView: UIView {
 
     // MARK: - Gesture Recognizer
 
-    private lazy var tapGestureRecognizer: UITapGestureRecognizer = { [weak self] in
-        return UITapGestureRecognizer(target: self, action: #selector(handleTap))
+    private lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        UITapGestureRecognizer(target: self, action: #selector(handleTap))
     }()
 
     // MARK: - Actions

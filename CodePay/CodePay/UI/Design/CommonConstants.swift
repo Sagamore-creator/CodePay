@@ -6,9 +6,8 @@ import UIKit
 let BorderWidth: CGFloat = 1.0
 let AlphaEnabled: CGFloat = 1.0
 let AlphaDisabled: CGFloat = 0.5
-let ButtonRoundedRadius = CornerRadiusSize.default.valueFrom(size: .zero)
 
-// MARK: - Currency TEMPORARY!
+// MARK: - Currency
 
 let currency: [Currency] = [
     Currency(title: "USD"),

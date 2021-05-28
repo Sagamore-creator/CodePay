@@ -10,10 +10,6 @@ class ViewController: UIViewController {
         print("BASE VIEWCONTROLLER - DEINITED")
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

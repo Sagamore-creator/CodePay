@@ -5,12 +5,11 @@ import UIKit
 import SnapKit
 
 final class LoginViewController: ViewController {
+    private let UIComponent = UIComponentBuilder.self
 
     deinit {
         print("LOGIN SCENE - DEINITED")
     }
-
-    private let UIComponent = UIComponentBuilder.self
 
     // MARK: - UI components
 
@@ -192,7 +191,7 @@ private extension LoginViewController {
 
                 self?.presentHomeScene()
             } catch {
-                if let error = error as? UserManager.ErrorMessage {
+                if let error = error as? UserManager.Error {
                     self?.showAlert(message: error.description)
                 }
             }
