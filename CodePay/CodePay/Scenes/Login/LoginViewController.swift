@@ -168,10 +168,12 @@ private extension LoginViewController {
 
     func handleLogin(phoneNumber: String?, password: String?) {
         activityIndicator.show()
+
         API.UsersRoute.get(with: phoneNumber).result { [weak self] result in
             switch result {
             case .success(let users):
                 UserManager.user = users.first
+                
                 self?.tryLogin(with: phoneNumber, and: password)
             case .failure(let error):
                 print(error.localizedDescription)

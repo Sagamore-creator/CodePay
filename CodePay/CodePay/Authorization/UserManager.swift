@@ -39,21 +39,22 @@ final class UserManager {
             password: password
         )
 
-        api.registerUser(user)
-        loggedInUser = user
+        api.registerUser(user) {
+            loggedInUser = user
 
-        userDefaults.saveLoggedInUser(
-            User(
-                id: user.id,
-                phoneNumber: user.phoneNumber,
-                password: ""
+            userDefaults.saveLoggedInUser(
+                User(
+                    id: user.id,
+                    phoneNumber: user.phoneNumber,
+                    password: ""
+                )
             )
-        )
+        }
 
         api.registerAccount(
             Account(
-                id: nil,
-                phoneNumber: phoneNumber,
+                id: user.id,
+                phoneNumber: user.phoneNumber,
                 currency: currency,
                 balance: 0
             )
@@ -64,10 +65,12 @@ final class UserManager {
         guard let phoneNumber = phoneNumber, let password = password else {
             throw Error.unknownError
         }
+
         try validateLogin(
             phoneNumber: phoneNumber,
             password: password
         )
+
         loggedInUser = user
 
         userDefaults.saveLoggedInUser(
@@ -99,7 +102,7 @@ private extension UserManager {
             currency: currency
         )
         try checkPhoneNumber(phoneNumber)
-        try checkPasswordSyntax(password)
+        try checkPassword(password)
         try checkPasswordMatching(for: password, confirmPassword)
         try checkIfUserExists()
     }
@@ -107,7 +110,7 @@ private extension UserManager {
     static func validateLogin(phoneNumber: String, password: String) throws {
         try checkIfFieldsNotEmpty(phoneNumber: phoneNumber, password: password)
         try checkPhoneNumber(phoneNumber)
-        try checkPasswordSyntax(password)
+        try checkPassword(password)
         try checkIfUserValid(with: password)
     }
 
@@ -124,7 +127,7 @@ private extension UserManager {
         }
     }
 
-    static func checkPasswordSyntax(_ password: String) throws {
+    static func checkPassword(_ password: String) throws {
         let passRegEx = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$" // min 8 chars, 1 letter, 1 number
         let trimmedString = password.trimmingCharacters(in: .whitespaces)
         let validatePassword = NSPredicate(format:"SELF MATCHES %@", passRegEx)
@@ -165,7 +168,7 @@ private extension UserManager {
 
     static func checkIfUserValid(with password: String) throws {
         guard let user = UserManager.user, user.password == password else {
-            throw Error.userNotFound
+            throw Error.wrongPassword
         }
     }
 

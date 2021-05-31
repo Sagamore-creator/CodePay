@@ -11,8 +11,9 @@ enum API {
 
 extension API {
 
-    static func registerUser(_ user: User) {
+    static func registerUser(_ user: User, completion: @escaping () -> ()) {
         UsersRoute.post(user: UsersRoute.Params(user: user)).result { _ in }
+        completion()
     }
 
     static func registerAccount(_ account: Account) {

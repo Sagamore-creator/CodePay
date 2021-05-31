@@ -38,6 +38,7 @@ final class CurrencyTableViewController: TableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Choose currency"
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(SelectionCell.self, forCellReuseIdentifier: "SelectionCell")
         tableView.tableFooterView = UIView()
     }
