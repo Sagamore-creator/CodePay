@@ -123,7 +123,7 @@ private extension UserManager {
         let isValidPhone = validatePhone.evaluate(with: trimmedString)
 
         guard isValidPhone else {
-            throw Error.wrongPhoneNumberSyntax
+            throw Error.wrongPhoneNumber
         }
     }
 
@@ -134,7 +134,7 @@ private extension UserManager {
         let isValidPassword = validatePassword.evaluate(with: trimmedString)
 
         guard isValidPassword else {
-            throw Error.wrongPasswordSyntax
+            throw Error.wrongPassword
         }
     }
 
@@ -168,7 +168,7 @@ private extension UserManager {
 
     static func checkIfUserValid(with password: String) throws {
         guard let user = UserManager.user, user.password == password else {
-            throw Error.wrongPassword
+            throw Error.userNotFound
         }
     }
 
@@ -186,9 +186,8 @@ extension UserManager {
     enum Error: Swift.Error {
         case missingValues
         case userAlreadyExists
-        case wrongPhoneNumberSyntax
+        case wrongPhoneNumber
         case wrongPassword
-        case wrongPasswordSyntax
         case passwordsDontMatch
         case userNotFound
         case unknownError
@@ -199,12 +198,10 @@ extension UserManager {
                 return "Missing required values."
             case .userAlreadyExists:
                 return "This user is already taken."
-            case .wrongPhoneNumberSyntax:
+            case .wrongPhoneNumber:
                 return "Number format should be +370 000 00 000."
             case .wrongPassword:
-                return "Incorrect password!"
-            case .wrongPasswordSyntax:
-                return "Password must have min 8 symbols, 1 letter, 1 number."
+                return "Password must have min 8 characters. At least 1 big letter and 1 number."
             case .passwordsDontMatch:
                 return "Passwords doesn't match"
             case .userNotFound:
