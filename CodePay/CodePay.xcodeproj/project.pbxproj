@@ -164,41 +164,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		0A2190932641B79B00F53B02 /* Transaction List */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Transaction List";
-			sourceTree = "<group>";
-		};
-		0A2190942641B7B000F53B02 /* Transaction Info */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Transaction Info";
-			sourceTree = "<group>";
-		};
-		0A2190952641B7BF00F53B02 /* Add Money */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Add Money";
-			sourceTree = "<group>";
-		};
-		0A2190962641B7CC00F53B02 /* Send Money */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Send Money";
-			sourceTree = "<group>";
-		};
-		0A2190972641B7DD00F53B02 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		0A2190982641CFF100F53B02 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,13 +183,6 @@
 				0A82C69A26514BBD00508C51 /* AccountModel+CoreDataProperties copy.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		0A21909A2641D0E500F53B02 /* Transaction Filter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Transaction Filter";
 			sourceTree = "<group>";
 		};
 		0A4A5FB126565ECA00F242D3 /* User Defaults */ = {
@@ -343,12 +301,6 @@
 				0A2190902641B77500F53B02 /* Login */,
 				0A2190912641B77F00F53B02 /* Register */,
 				0A2190922641B78E00F53B02 /* Home */,
-				0A2190932641B79B00F53B02 /* Transaction List */,
-				0A21909A2641D0E500F53B02 /* Transaction Filter */,
-				0A2190942641B7B000F53B02 /* Transaction Info */,
-				0A2190952641B7BF00F53B02 /* Add Money */,
-				0A2190962641B7CC00F53B02 /* Send Money */,
-				0A2190972641B7DD00F53B02 /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

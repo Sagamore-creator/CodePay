@@ -29,9 +29,38 @@ class ViewController: UIViewController {
 extension ViewController {
 
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert
+        )
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
+    }
+}
+
+// MARK: - Child ViewController
+
+extension ViewController {
+
+    func childViewController(viewController: UIViewController) {
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.didMove(toParent: self)
+        setupChildConstraints(viewController: viewController)
+        viewController.view.backgroundColor = .red
+    }
+
+    private func setupChildConstraints(viewController: UIViewController) {
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        viewController.view.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(200)
+        }
     }
 }
 
@@ -74,11 +103,16 @@ extension ViewController {
         present(viewController: RegisterViewController(), style: .push)
     }
 
+    // FIXME: make nice child VC
     func presentHomeScene() {
         present(viewController: HomeViewController(), style: .modalFull)
     }
 
-    func presentTransactionListScene() {}
+    func presentTransactionList() {}
+    func presentTransactionInfo() {}
+    func presentAddMoney() {}
+    func presentSendMoney() {}
+    func presentSettings() {}
 
     // MARK: Navigation helpers
 

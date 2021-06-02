@@ -125,17 +125,20 @@ class Button: UIButton {
 extension Button {
 
     func disable() {
-        self.isEnabled = false
+        isEnabled = false
     }
 
     func enable() {
-        self.isEnabled = true
+        isEnabled = true
     }
 }
 
 extension UIControl {
 
-    func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping () -> ()) {
+    func addAction(
+        for controlEvents: UIControl.Event = .touchUpInside,
+        _ closure: @escaping () -> ()
+    ) {
         addAction(UIAction { (action: UIAction) in closure() }, for: controlEvents)
     }
 }

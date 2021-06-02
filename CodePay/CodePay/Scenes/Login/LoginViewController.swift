@@ -173,7 +173,6 @@ private extension LoginViewController {
             switch result {
             case .success(let users):
                 UserManager.user = users.first
-                
                 self?.tryLogin(with: phoneNumber, and: password)
             case .failure(let error):
                 print(error.localizedDescription)

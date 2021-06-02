@@ -28,7 +28,7 @@ extension API {
         ///        GET - gets all users with specified phoneNumber
         static func get(with phoneNumber: String?) -> Route<Users> {
             .init(
-                endpoint: endpoint, //"/user",
+                endpoint: "/user", //"/user",
                 params: PhoneNumberQuery(phoneNumber: phoneNumber)
             )
         }
